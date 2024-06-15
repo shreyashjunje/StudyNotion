@@ -1,0 +1,2 @@
+# StudyNotion
+an EdTech platform
