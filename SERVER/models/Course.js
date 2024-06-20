@@ -12,14 +12,14 @@ const courseSchema = new mongoose.Schema({
 
         
         },
-        instructor: [
+        instructor: 
             {
             type:mongoose.Schema.Types.ObjectId,
             ref: "User",
             required:true,
 
             },
-        ],
+        
         whatYouWillLearn:{
             type:String,
             trim:true  
@@ -46,12 +46,12 @@ const courseSchema = new mongoose.Schema({
         
         },
 
-        tag: [
+        tag: 
             {
             type:mongoose.Schema.Types.ObjectId,
             ref: "Tag",
-            }
-        ],
+            },  
+    
         studentEnrolled: [
             {
             type:mongoose.Schema.Types.ObjectId,

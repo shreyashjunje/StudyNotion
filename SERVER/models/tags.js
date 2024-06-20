@@ -2,18 +2,18 @@ const mongoose=require('mongoose')
 
 const tagsSchema= new mongoose.Schema(
     {
-        tagName:{
+        name:{
             type:String,
             required:true,
         },
-        tagDescription:{
+        description:{
             type:String,
             trim:true,
         },
-        tagCourse:{
-             type:mongoose.Schema.Types.ObjectId,
-            ref:"Course"
-        }
+        course:[{
+              type:mongoose.Schema.Types.ObjectId,
+              ref:"Course"
+        }]
     }
 )
 
