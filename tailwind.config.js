@@ -129,7 +129,45 @@ module.exports = {
         maxContent: "1260px",
         maxContentTab: "650px"
       },
+      
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.gradient-text-blue': {
+          background: 'linear-gradient(118.19deg, #1FA2FF -3.62%, #12D8FA 50.44%, #A6FFCB 104.51%)',
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          'background-clip': 'text',
+          'text-fill-color': 'transparent',
+        },
+
+        '.gradient-text-dark-orange': {
+          background: 'linear-gradient(117.83deg, #FF512F -4.8%, #F09819 107.46%)',
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          'background-clip': 'text',
+          'text-fill-color': 'transparent',
+        },
+        '.gradient-text-light-orange': {
+          background: 'linear-gradient(118.41deg, #E65C00 -6.05%, #F9D423 106.11%)',
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          'background-clip': 'text',
+          'text-fill-color': 'transparent',
+        },
+        '.gradient-text-red': {
+          background: 'linear-gradient(117.95deg, #833AB4 -2.4%, #FD1D1D 52.25%, #FCB045 106.89%)',
+          '-webkit-background-clip': 'text',
+          '-webkit-text-fill-color': 'transparent',
+          'background-clip': 'text',
+          'text-fill-color': 'transparent',
+        },
+      
+
+
+      })
+    },
+  ],
 };

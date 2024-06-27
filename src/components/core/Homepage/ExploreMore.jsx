@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {HomePageExplore} from "../../../data/homepage-explore";
 import Home from '../../../pages/Home';
 import HighlightText from './HighlightText';
+import { CourseCard } from './CourseCard';
 
 
 
