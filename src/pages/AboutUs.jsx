@@ -3,6 +3,8 @@ import HighlightText from "../components/core/Homepage/HighlightText";
 import AboutUsPhotoframe from "../components/core/AboutUspage/AboutUsPhotoframe";
 import OurFoundingStory from "../components/core/AboutUspage/OurFoundingStory";
 import OurVisionAndMission from "../components/core/AboutUspage/OurVisionAndMission";
+import ActiveStudentCount from "../components/core/AboutUspage/ActiveStudentCount";
+import LearningGrid from "../components/core/AboutUspage/LearningGrid";
 
 const AboutUs = () => {
   return (
@@ -56,6 +58,12 @@ const AboutUs = () => {
       <div className="w-full mb-60">
         <OurVisionAndMission />
       </div>
+
+      <ActiveStudentCount/>
+
+      <section className="my-4">
+        <LearningGrid/>
+      </section>
     </div>
   );
 };

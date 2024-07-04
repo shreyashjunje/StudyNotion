@@ -19,7 +19,7 @@ import { ExploreMore } from '../components/core/Homepage/ExploreMore';
 
 function Home() {
   return (
-    <div>
+    <div>   
          {/* section 1 */}
          <div className='relative mx-auto fles flex-col w-11/12 max-w-maxContent items-center text-white justify-between'>
             <Link to="/signup">
