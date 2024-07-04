@@ -1,9 +1,3 @@
-/* write your css here */
-/* html,body {
-    /* overflow: hidden; */
-
-/* } */ */
-
-.homepage_bg{
-    background: url("../src/assets/Images/bghome.svg");
+.homepage_bg {
+  background: url("./assets/Images/bghome.svg");
 }
