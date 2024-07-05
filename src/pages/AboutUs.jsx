@@ -5,6 +5,7 @@ import OurFoundingStory from "../components/core/AboutUspage/OurFoundingStory";
 import OurVisionAndMission from "../components/core/AboutUspage/OurVisionAndMission";
 import ActiveStudentCount from "../components/core/AboutUspage/ActiveStudentCount";
 import LearningGrid from "../components/core/AboutUspage/LearningGrid";
+import ContactFormSection from "../components/core/AboutUspage/ContactFormSection";
 
 const AboutUs = () => {
   return (
@@ -64,6 +65,11 @@ const AboutUs = () => {
       <section className="my-4">
         <LearningGrid/>
       </section>
+
+
+      <section>
+        <ContactFormSection/>
+      </section>  
     </div>
   );
 };
