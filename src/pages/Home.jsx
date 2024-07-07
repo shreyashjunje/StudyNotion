@@ -236,15 +236,16 @@ function Home() {
 
             {/* <InstructorSection/> */}
 
-            <h2 className='text-center text-4xl font-semiboldmt-10'>
+            {/* <h2 className='text-center text-4xl font-semiboldmt-10'>
                     Reviews from other learners
-            </h2>
+            </h2> */}
             {/* {sliders} */}
             
         </div>
 
 
          {/* section 4 */}
+
     </div>
   )
 }

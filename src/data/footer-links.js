@@ -53,3 +53,5 @@ export const FooterLink2 = [
     ]
   }
 ];
+
+// export default FooterLink2;
