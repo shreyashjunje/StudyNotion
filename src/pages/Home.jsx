@@ -11,6 +11,7 @@ import { LearningLanguageSection } from '../components/core/Homepage/LearningLan
 // import { BsSliders } from 'react-icons/bs';
 import InstructorSection from '../components/core/Homepage/InstructorSection';
 import { ExploreMore } from '../components/core/Homepage/ExploreMore';
+import ReviewSlider from '../components/core/Homepage/ReviewSlider';
 
 
 
@@ -236,10 +237,16 @@ function Home() {
 
             {/* <InstructorSection/> */}
 
-            {/* <h2 className='text-center text-4xl font-semiboldmt-10'>
-                    Reviews from other learners
-            </h2> */}
-            {/* {sliders} */}
+           
+            {/* {review secition } */}
+            {/* <section> */}
+                {/* <div className='flex flex-col gap-5 p-20'>
+                    <h2 className='text-center text-4xl font-semibold mt-20 mb-10'>
+                        Reviews from other learners
+                    </h2>
+                    
+                </div> */}
+            {/* </section> */}
             
         </div>
 
