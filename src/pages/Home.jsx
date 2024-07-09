@@ -232,7 +232,7 @@ function Home() {
 
 
          {/* section 3 */}
-        <div className='w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8
+        <div className=' mx-auto max-w-maxContent flex-col items-center justify-between gap-8
         first-letter bg-richblack-900 text-white'>
 
             {/* <InstructorSection/> */}
