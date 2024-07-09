@@ -37,6 +37,7 @@ const SignUpForm = () => {
     }));
   }
 
+  
   function submithandler(event) {
     event.preventDefault();
 
