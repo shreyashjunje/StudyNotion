@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { getPasswordResetToken } from '../services/operations/authAPI';
 
 const ForgotPasswod = () => {
     const [emailSent,setEmailSent]=useState(false);
     const[email,setEmail]=useState("")
-    const{loading}=useSelector(()=>state.auth)
+    const{loading}=useSelector((state)=>state.auth)
     const dispatch=useDispatch();
 
     function handleonSubmit(event){
@@ -13,7 +15,7 @@ const ForgotPasswod = () => {
     }
     
   return (
-    <div>
+    <div className='text-richblack-25'>
        {
         loading? (
         <div>loading...</div>
@@ -40,14 +42,17 @@ const ForgotPasswod = () => {
                                 <label>
                                     <p>Email Address*</p>
                                     <input 
+                                    className='text-richblack-900'
                                     required
                                     type="email"
                                     value={email}
                                     onSubmit={(event)=>setEmail(event.target.value)}
                                     name='email'
                                      />
+                                     
                                 </label>
                             )
+                            
                         }
                    </div>
                 </form>

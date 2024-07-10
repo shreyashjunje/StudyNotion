@@ -21,7 +21,7 @@ const SignUpForm = () => {
     confirmPassword: "",
   });
   const [showPassword, setShowpassword] = useState(false);
-  const [confirmPass,setConfirmPass] = useState(false);
+  const [confirmPass, setConfirmPass] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -37,12 +37,16 @@ const SignUpForm = () => {
     }));
   }
 
-  
   function submithandler(event) {
     event.preventDefault();
 
     if (password !== confirmPassword) {
       toast("Password do not matched");
+      return;
+    }
+
+    if (phoneNo.length < 8 || phoneNo.length > 10) {
+      toast.error("Invalid Phone Number");
       return;
     }
     const signupData = {
@@ -52,10 +56,14 @@ const SignUpForm = () => {
     console.log(signupData);
 
     // Setting signup data to state
-    // To be used after otp verification
-    dispatch(signUp(signupData));
-    // Send OTP to user for verification
     dispatch(sendOtp(formData.email, navigate));
+    // To be used after otp verification
+    dispatch(signUp(signupData, navigate));
+    // // Send OTP to user for verification
+
+    // dispatch(signUp(signupData)).then(() => {
+    //   dispatch(sendOtp(formData.email, navigate));
+    // });
 
     // Reset
     setFormData({
@@ -85,7 +93,7 @@ const SignUpForm = () => {
 
   return (
     <div className="text-richblack-5">
-         {/* Tab */}
+      {/* Tab */}
       <Tab tabData={tabData} field={accountType} setField={setAccountType} />
       <form onSubmit={submithandler}>
         <div>
@@ -104,9 +112,8 @@ const SignUpForm = () => {
           <label>
             <p>Last Name</p>
             <input
-            required
-            className="text-black"
-
+              required
+              className="text-black"
               type="text"
               placeholder="Enter Last Name"
               name="lastName"
@@ -120,7 +127,6 @@ const SignUpForm = () => {
           <input
             required
             className="text-black"
-
             type="text"
             value={email}
             name="email"
@@ -136,7 +142,11 @@ const SignUpForm = () => {
             <select name="" id="" className="text-richblack-900">
               {countrycode.map((code, index) => {
                 return (
-                  <option key={index} value="code.code" className="text-richblack-900">
+                  <option
+                    key={index}
+                    value={code.code}
+                    className="text-richblack-900"
+                  >
                     {code.code}-{code.country}
                   </option>
                 );
@@ -167,7 +177,6 @@ const SignUpForm = () => {
             <input
               required
               className="text-black"
-
               type={showPassword ? "text" : "password"}
               value={password}
               name="password"
@@ -185,7 +194,6 @@ const SignUpForm = () => {
             <input
               required
               className="text-black"
-
               type={confirmPass ? "text" : "password"}
               value={confirmPassword}
               name="confirmPassword"
