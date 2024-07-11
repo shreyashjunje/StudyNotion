@@ -11,12 +11,12 @@ const Codeblock = ({
     position,heading,subHeading,ctabtn1,ctabtn2,codeblock,backgroundGradient,codeColor
 }) => {
   return (
-    <div className={`flex ${position} my-20 justify-betwenn gap-10`}>
+    <div className={`flex flex-col lg:flex-row ${position} my-20  lg:justify-betwen gap-10`}>
 
         {/* section 1 */}
-        <div className='w-[50%] flex flex-col gap-2 '>
+        <div className='lg:w-[50%] flex flex-col gap-2 '>
 
-                <div className=''>
+                <div>
                     {heading}
                     <div className='text-richblack-300 font-bold'>
                         {subHeading}
@@ -27,7 +27,7 @@ const Codeblock = ({
         
            
 
-            <div className='flex gap-7 mt-20'>
+            <div className='flex gap-7  mt-[2rem] lg:mt-20'>
                 <CTAButton active={ctabtn1.active} linkto={ctabtn1.linkto}>
                     <div className='flex gap-2 items-center'>
                         {ctabtn1.btnText}

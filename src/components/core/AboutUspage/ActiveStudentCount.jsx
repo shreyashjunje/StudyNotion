@@ -11,7 +11,7 @@ const statsData=[
 const ActiveStudentCount = () => {
 
   return (
-    <div className='flex flex-row justify-center itenms-center p-16 bg-richblack-800 text-richblack-5 gap-2'>
+    <div className='flex flex-col lg:flex-row justify-center itenms-center p-[2rem] lg:p-16 bg-richblack-800 text-richblack-5  gap-2'>
         {
             statsData.map((data,index)=>{
                 return(

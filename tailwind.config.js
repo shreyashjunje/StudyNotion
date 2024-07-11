@@ -7,6 +7,9 @@ module.exports = {
       "edu-sa": ["Edu SA Beginner", "cursive"],
       mono: ["Roboto Mono", "monospace"],
     },
+    boxShadow: {
+      'custom-inset': '5px 5px 15px 5px #FBF5FF',
+    },
     colors: {
       white: "#fff",
       black: "#000",
@@ -128,6 +131,9 @@ module.exports = {
       maxWidth: {
         maxContent: "1260px",
         maxContentTab: "650px",
+      },
+      boxShadow: {
+        'custom-inset': '0px -1px 0px 0px rgba(255, 255, 255, 0.18)',
       },
     },
   },

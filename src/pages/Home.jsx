@@ -24,7 +24,8 @@ function Home() {
          {/* section 1 */}
          <div className='relative mx-auto fles flex-col w-11/12 max-w-maxContent items-center text-white justify-between'>
             <Link to="/signup">
-                    <div className='group mt-16 p-1 mx-auto rounded-full bg-richblack-800 font-bold text-richblack-200
+                    <div className='custom-inset
+                     group mt-16 p-1 mx-auto rounded-full bg-richblack-800 font-bold text-richblack-200
                     transition-all duration-200 hover:scale-95 w-fit'>
                         <div className='flex flex-row items-center gap-2 rounded-full px-10 py-[5px]
                          transition-all duration-200 group-hover:bg-richblack-900 '>
@@ -54,11 +55,12 @@ function Home() {
             </div>
 
 
-            <div className= ' mx-3 my-12 shadow-blue-200'>
+            <div className= ' mx-3 my-12 shadow-blue-200 '>
                 <video 
                 muted
                 loop
                 autoPlay
+            
                 // src={Banner}
                 >
                     <source src={Banner} type='video/mp4'/>
@@ -115,26 +117,26 @@ function Home() {
                     position={"lg:flex-row-reverse"}
                     heading={
                         <div className='text-4xl font-semibold'>
-                            Unlock Your
-                            <HighlightText text={"Coding Potentials"}/>
+                            Start
+                            <HighlightText text={"coding in seconds"}/>
                         
-                            with our online courses
+                        
                         </div>
 
                     }
                     subHeading={
-                        "Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you."
+                        "Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson."
                     }
                     ctabtn1={
                         {
-                        btnText:"try it yourself",
+                        btnText:"Continue Lesson",
                         linkto:"/signup ",
                         active:true,
                         }
                     }
                     ctabtn2={
                         {
-                        btnText:"learn more",
+                        btnText:"Learn more",
                         linkto:"/login ",
                         active:false,
                         }
@@ -217,7 +219,7 @@ function Home() {
 
                     </div>
                     
-                    <TimelineSection/>
+                    {/* <TimelineSection/> */}
 
                     <LearningLanguageSection/>
                     

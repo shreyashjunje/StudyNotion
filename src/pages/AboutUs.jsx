@@ -9,13 +9,13 @@ import ContactFormSection from "../components/core/AboutUspage/ContactFormSectio
 
 const AboutUs = () => {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full overflow-hidden">
       {/* section 1 */}
       <div className="relative mx-auto flex flex-col h-[618px]  items-center bg-richblack-800 justify-between text-white">
         <div className=" font-bold flex flex-col items-center w-11/12 mb-40 text-richblack-25 font-inter">
           <div className="w-full text-center mt-20 mb-8">About Us</div>
 
-          <div className="text-center text-4xl font-semibold mt-7 mb-1">
+          <div className="text-center  lg:text-4xl font-semibold mt-7 mb-1">
             Driving Innovation in Online Education for a
           </div>
 
@@ -30,7 +30,13 @@ const AboutUs = () => {
             nurturing a vibrant learning community.
           </div>
         </div>
-        <AboutUsPhotoframe />
+
+
+
+        {/* <AboutUsPhotoframe /> */}
+
+
+
       </div>
 
       {/* section 2 */}

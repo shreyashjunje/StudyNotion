@@ -62,13 +62,15 @@ const LearningGrid = () => {
                     `}
           >
             {card.order < 0 ? (
-              <div className=" w-full max-w-[559px] h-auto md:h-[268px] ml-16">
-                <div className=" flex flex-col justify-end gap-6 px-12 py-0">
+              <div className=" w-full max-w-[559px] h-auto md:h-[268px]  lg:ml-16">
+                <div className=" flex flex-col justify-end gap-6  lg:px-12 py-0">
                   <div className=" text-4xl font-semibold ">
                     {card.heading}
                     <HighlightText text={card.highlightText} />
                   </div>
+
                   <p className="text-richblack-300">{card.description}</p>
+                  
                   <div className="flex items-start mt-4">
                     <CTAButton active={true} linkto={card.BtnLink}>
                       {card.BtnText}

@@ -2,13 +2,13 @@ import React from "react";
 
 const OurVisionAndMission = () => {
   return (
-    <div className="flex mx-auto items-center justify-center h-full px-[120px] ">
+    <div className="flex flex-col lg:flex-row mx-auto items-center justify-center gap-5 h-full p-20 lg:px-[120px] ">
 
-      <div className="flex flex-col px-[5rem]  gap-[24px]">
+      <div className="flex flex-col gap-8 lg:gap-[24px]">
         <h2 className="gradient-text-light-orange text-4xl font-bold">
           Our Vision
         </h2>
-        <div className="flex flex-col text-start text-richblack-600 px-10">
+        <div className="flex flex-col text-start text-richblack-600 lg:px-10">
           With this vision in mind, we set out on a journey to create an
           e-learning platform that would revolutionize the way people learn. Our
           team of dedicated experts worked tirelessly to develop a robust and
