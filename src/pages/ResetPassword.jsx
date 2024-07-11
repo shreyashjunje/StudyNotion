@@ -1,20 +1,21 @@
-import { useState } from "react"
-import { BiArrowBack } from "react-icons/bi"
-import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import { BiArrowBack } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-import { getPasswordResetToken } from "../services/operations/authAPI"
+import { getPasswordResetToken } from "../services/operations/authAPI";
 
 function ForgotPassword() {
-  const [email, setEmail] = useState("")
-  const [emailSent, setEmailSent] = useState(false)
-  const dispatch = useDispatch()
-  const { loading } = useSelector((state) => state.auth)
+  const [email, setEmail] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.auth);
 
   const handleOnSubmit = (e) => {
-    e.preventDefault()
-    dispatch(getPasswordResetToken(email, setEmailSent))
-  }
+    e.preventDefault();
+    console.log(email);
+    dispatch(getPasswordResetToken({ email, setEmailSent })); // Pass as an object
+  };
 
   return (
     <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
@@ -27,7 +28,7 @@ function ForgotPassword() {
           </h1>
           <p className="my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100">
             {!emailSent
-              ? "Have no fear. We'll email you instructions to reset your password. If you dont have access to your email we can try account recovery"
+              ? "Have no fear. We'll email you instructions to reset your password. If you don't have access to your email, we can try account recovery"
               : `We have sent the reset email to ${email}`}
           </p>
           <form onSubmit={handleOnSubmit}>
@@ -41,7 +42,7 @@ function ForgotPassword() {
                   type="email"
                   name="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(event) => setEmail(event.target.value)}
                   placeholder="Enter email address"
                   className="form-style w-full"
                 />
@@ -51,7 +52,7 @@ function ForgotPassword() {
               type="submit"
               className="mt-6 w-full rounded-[8px] bg-yellow-50 py-[12px] px-[12px] font-medium text-richblack-900"
             >
-              {!emailSent ? "Sumbit" : "Resend Email"}
+              {!emailSent ? "Submit" : "Resend Email"}
             </button>
           </form>
           <div className="mt-6 flex items-center justify-between">
@@ -64,7 +65,7 @@ function ForgotPassword() {
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default ForgotPassword
+export default ForgotPassword;

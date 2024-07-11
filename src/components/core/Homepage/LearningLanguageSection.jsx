@@ -21,7 +21,7 @@ export const LearningLanguageSection = () => {
                 progress tracking, custom schedule and more.
             </div>
 
-            <div className='flex flex-row items-center justify-center mt-5'>
+            <div className='overflow-hidden flex flex-wrap flex-row items-center justify-center mt-5'>
 
                 <img src={know_your_progress} alt="knowyourprogrssIMG" className='object-contain -mr-32'/>
                 <img src={compare_with_others} alt="comparewithothersIMG" className='object-contain ' />

@@ -50,11 +50,11 @@ function App() {
           }
         />
         <Route
-          path="/update-password"
+          path="/update-password/:id"
           element={
             <OpenRoute>
               {" "}
-              <UpdatePassword />
+              <UpdatePassword/>
             </OpenRoute>
           }
         />

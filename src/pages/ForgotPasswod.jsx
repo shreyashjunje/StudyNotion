@@ -4,14 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPasswordResetToken } from '../services/operations/authAPI';
 
 const ForgotPasswod = () => {
-    const [emailSent,setEmailSent]=useState(false);
     const[email,setEmail]=useState("")
+    const [emailSent,setEmailSent]=useState(false);
     const{loading}=useSelector((state)=>state.auth)
     const dispatch=useDispatch();
 
     function handleonSubmit(event){
         event.preventDefault();
-        dispatch(getPasswordResetToken(email),setEmailSent)
+        dispatch(getPasswordResetToken(email,setEmailSent))
     }
     
   return (

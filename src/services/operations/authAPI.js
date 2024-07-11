@@ -119,22 +119,23 @@ export function login(email, password, navigate) {
   };
 }
 
-export function getPasswordResetToken({ email, setEmailSent }) {
+export function getPasswordResetToken({ email , setEmailSent }) {
+  console.log(email);
   return async (dispatch) => {
     dispatch(setLoading(true));
     try {
-      const response = apiConnector("POST",RESETPASSTOKEN_API, { email, });
+
+      const response = await apiConnector("POST",RESETPASSTOKEN_API, { email });
+
+       // Log the email value to verify it's correctly set
+       console.log("Email for reset password:", email);
+
       console.log("RESET PASSWORD TOKEN RESPONSE...", response);
 
-        // if (!response.data.success) {
-        //   throw new Error(response.data.message);
-        // }
-
-         // Ensure response.data exists and has a success property
-      if (!response.data || !response.data.success) {
-        throw new Error(response.data ? response.data.message : 'Unexpected error occurred.');
-      }
-
+      // if (!response.data || !response.data.success) {
+      //   throw new Error(response.data ? response.data.message : 'Unexpected error occurred.');
+      // }
+      
 
  
       toast.success("Reset Email Sent");
@@ -147,7 +148,7 @@ export function getPasswordResetToken({ email, setEmailSent }) {
   };
 }
 
-export function resetPassword(password, confirmPassword, token) {
+export function resetPassword({password, confirmPassword, token}) {
   return async (dispatch) => {
     dispatch(setLoading(true));
     try {
