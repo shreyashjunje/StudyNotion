@@ -15,14 +15,14 @@ const Footer = () => {
   return (
     <div className=' overflow-hidden flex-wrap  lg:h-screen bg-richblack-800 flex flex-col justify-between lg:justify-evenly  lg:items-center lg:gap-15  border-1'>
         {/* //top div */}
-        <div className='flex flex-col sm:gap-3 lg:flex-row justify-center   lg:h-[538px] lg:gap-12 gap-6  lg:m-6 w-[390px] lg:w-[1200px] '>
+        <div className=' overflow-hidden flex flex-col lg:flex-row gap-4 m-[3rem] lg:h-[538px] lg:gap-12  lg:m-6  lg:w-[1200px] '>
             {/* div1 */}
             {/* <div className='flex flex-row  '> */}
 
                 {/* //part 1 */}
-                <div className='sm:w-[50%] flex flex-wrap sm:items-center sm:justify-center text-richblack-5  lg:flex-row gap-6 lg:gap-9'>
+                <div className=' flex flex-col sm:w-1/2  mx-[7rem]     text-richblack-5 gap-6  lg:flex-row  lg:gap-9'>
 
-                    <div className='flex gap-9 '>
+                    <div className='flex gap-16 lg:gap-9 '>
 
                         <div className='flex sm:flex-wrap flex-col gap-3  '>
                                 <Link to="/">
@@ -69,7 +69,7 @@ const Footer = () => {
                     </div>
                    
 
-                    <div className='flex lg:flex-col gap-24 lg:gap-9'>
+                    <div className='flex lg:flex-col gap-32  lg:gap-9'>
                         <div className='flex flex-col gap-3'>
                             <h3 className='text-md text-richblack-100'>Plans</h3>
                             <ul className='text-richblack-500 flex flex-col gap-2'>
@@ -96,7 +96,7 @@ const Footer = () => {
             <div className='lg:visible hidden lg:border-2 border-richblack-700'></div>
 
             {/* div3 */}
-            <div className='flex flex-wrap lg:flex-row overflow-hidden'>
+            <div className='flex lg:flex-row overflow-hidden '>
                 <FooterList/>
             </div>
         </div>
