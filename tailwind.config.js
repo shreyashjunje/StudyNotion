@@ -135,6 +135,9 @@ module.exports = {
       boxShadow: {
         'custom-inset': '0px -1px 0px 0px rgba(255, 255, 255, 0.18)',
       },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(123.77deg, #8A2BE2 -6.46%, #FFA500 59.04%, #F8F8FF 124.53%)',
+      },
     },
   },
   plugins: [

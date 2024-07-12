@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 
 const FooterList = () => {
   return (
-    <div className=' flex gap-12'>
+    <div className=' flex flex-wrap gap-12  lg:gap-12'>
         {
             FooterLink2.map((part,index)=>{
-                return(
+                return(         
                     <div key={index}>
                         <h2 className='font-bold text-md mb-2 text-richblack-100'>{part.title}</h2>
                         <ul className='flex gap-2 flex-col text-richblack-500'>

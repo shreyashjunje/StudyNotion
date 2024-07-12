@@ -44,38 +44,39 @@ const Codeblock = ({
         </div>
 
         {/* section 2 */}
-        <div className={`flex flex-row h-fit text-[10px] w-[100%] py-4 lg:w-[500px]`}>
-            {/* {HW : create backgrund code gradient}/  */}
-            <div className='text-[14px] text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold'>
-                <p>1</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-                <p>5</p>
-                <p>6</p>
-6               <p>7</p>
-                <p>8</p>
-                <p>9</p>
-                <p>10</p>
-                <p>11</p>
-            </div>
+        {/* <div className='relative lg:w-[372.95px] lg:h-[257.05px] gap-0 opacity-20 rotate--0  bg-custom-gradient '> */}
+            <div className={` flex flex-row h-fit text-[10px] w-[100%] py-4 lg:w-[500px]`}>
+                {/* {HW : create backgrund code gradient}/  */}
+                <div className='text-[14px] text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold'>
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>5</p>
+                    <p>6</p>
+    6               <p>7</p>
+                    <p>8</p>
+                    <p>9</p>
+                    <p>10</p>
+                    <p>11</p>
+                </div>
 
-            <div className={`w-[100%] text-[14px] flex flex-col gap-2 font-bold font-mono ${codeColor} pr-2`}>
-                <TypeAnimation  
-                sequence={[codeblock,2000,""]}
-                repeat={Infinity}
-                cursor={true}
-                omitDeletionAnimation={true}
-                style={
-                    {
-                        whiteSpace:"pre-line",
-                        display:"block",
+                <div className={`w-[100%] text-[14px] flex flex-col gap-2 font-bold font-mono ${codeColor} pr-2`}>
+                    <TypeAnimation  
+                    sequence={[codeblock,2000,""]}
+                    repeat={Infinity}
+                    cursor={true}
+                    omitDeletionAnimation={true}
+                    style={
+                        {
+                            whiteSpace:"pre-line",
+                            display:"block",
+                        }
                     }
-                }
-                />
+                    />
+                </div>
             </div>
-        </div>
- 
+         {/* </div> */}
     </div>
   )
 }

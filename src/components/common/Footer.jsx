@@ -13,33 +13,36 @@ import { FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className=' overflow-hidden flex-wrap w-full h-screen bg-richblack-800 flex flex-col justify-evenly items-center gap-15  border-1'>
+    <div className=' overflow-hidden flex-wrap  lg:h-screen bg-richblack-800 flex flex-col justify-between lg:justify-evenly  lg:items-center lg:gap-15  border-1'>
         {/* //top div */}
-        <div className='flex justify-center h-[538px] gap-12 m-6 w-[1200px] '>
+        <div className='flex flex-col sm:gap-3 lg:flex-row justify-center   lg:h-[538px] lg:gap-12 gap-6  lg:m-6 w-[390px] lg:w-[1200px] '>
             {/* div1 */}
             {/* <div className='flex flex-row  '> */}
 
                 {/* //part 1 */}
-                <div className='text-richblack-5 flex flex-row gap-9'>
-                    <div className='flex flex-col gap-3  '>
-                        <Link to="/">
-                            <img src={logo} alt="this is studynotion logo" />
-                        </Link>
-                        <h2 className='text-md text-richblack-100'>Company</h2>
-                        <ul className='text-richblack-500 text-sm flex flex-col gap-2'>
-                            <li>About</li>
-                            <li>Careers</li>
-                            <li>Affiliates</li>
-                        </ul>
-                        <div className='flex flex-row gap-2'>
-                          <FaFacebook />
-                          <ImGoogle3 />
-                          <FaTwitter />
-                          <FaYoutube />
-                        </div>
-                    </div>
+                <div className='sm:w-[50%] flex flex-wrap sm:items-center sm:justify-center text-richblack-5  lg:flex-row gap-6 lg:gap-9'>
 
-                    {/* <div className='flex flex-col '> */}
+                    <div className='flex gap-9 '>
+
+                        <div className='flex sm:flex-wrap flex-col gap-3  '>
+                                <Link to="/">
+                                    <img src={logo} alt="this is studynotion logo" />
+                                </Link>
+                                <h2 className='text-md text-richblack-100'>Company</h2>
+                                <ul className='text-richblack-500 text-sm flex flex-col gap-2'>
+                                    <li>About</li>
+                                    <li>Careers</li>
+                                    <li>Affiliates</li>
+                                </ul>
+                                <div className='flex flex-row gap-2'>
+                                <FaFacebook />
+                                <ImGoogle3 />
+                                <FaTwitter />
+                                <FaYoutube />
+                                </div>
+                        </div>
+
+                
                         <div className='flex flex-col gap-9'>
                             <div className='flex flex-col gap-3'>
                                 <h2 className='text-md text-richblack-100'>Resources</h2>
@@ -62,9 +65,11 @@ const Footer = () => {
                                 </ul>
                             </div>
                         </div>
-                    {/* </div> */}
+                    
+                    </div>
+                   
 
-                    <div className='flex flex-col gap-9'>
+                    <div className='flex lg:flex-col gap-24 lg:gap-9'>
                         <div className='flex flex-col gap-3'>
                             <h3 className='text-md text-richblack-100'>Plans</h3>
                             <ul className='text-richblack-500 flex flex-col gap-2'>
@@ -88,10 +93,10 @@ const Footer = () => {
             {/* </div> */}
 
             {/* di2 */}
-            <div className='border-2 border-richblack-700'></div>
+            <div className='lg:visible hidden lg:border-2 border-richblack-700'></div>
 
             {/* div3 */}
-            <div className='flex flex-row'>
+            <div className='flex flex-wrap lg:flex-row overflow-hidden'>
                 <FooterList/>
             </div>
         </div>
@@ -99,7 +104,7 @@ const Footer = () => {
         <div className='w-[1200px] text-richblack-700 border-2 my-3'></div>
 
         {/* //bottom div  */}
-        <div className=' flex flex-row gap-4 mb-2 w-[1200px] justify-between'>
+        <div className=' flex flex-wrap lg:flex-row gap-4 mb-2 w-[1200px] justify-between'>
             <div className='flex flex-row text-richblack-500'>
                 <ul className='flex flex-row gap-6'>
                     <Link to={"/privacypolicy"}>
