@@ -109,6 +109,7 @@ export function login(email, password, navigate) {
         : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`;
       dispatch(setUser({ ...response.data.user, image: userImage }));
       localStorage.setItem("token", JSON.stringify(response.data.token));
+      localStorage.setItem("user", JSON.stringify(response.data.user));
       navigate("/dashboard/my-profile");
     } catch (error) {
       console.log("LOGIN API ERROR............", error);
@@ -172,3 +173,15 @@ export function resetPassword({password, confirmPassword, token}) {
     dispatch(setLoading(false));
   };
 }
+
+// export function logout(navigate) {
+//   return (dispatch) => {
+//     dispatch(setToken(null))
+//     dispatch(setUser(null))
+//     dispatch(resetCart())
+//     localStorage.removeItem("token")
+//     localStorage.removeItem("user")
+//     toast.success("Logged Out")
+//     navigate("/")
+//   }
+// }

@@ -9,7 +9,7 @@ import ProfileDropDown from "../core/Auth/ProfileDropDown";
 import { apiConnector } from "../../services/apiconnector";
 import { categories } from "../../services/apis";
 import { RiArrowDropDownLine } from "react-icons/ri";
-
+import Home from "../../pages/Home"
 const arr=[
     {
       title: "python",
@@ -141,7 +141,8 @@ const Navbar = () => {
               </button>
             </Link>
           )}
-          {token !== null && <ProfileDropDown />}
+          {token !== null && <ProfileDropDown />} 
+          {/* /??/here instead of home =>profiledropdown component */}
         </div>
       </div>
     </div>

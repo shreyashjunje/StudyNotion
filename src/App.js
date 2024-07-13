@@ -12,6 +12,10 @@ import ResetPassword from "./pages/ResetPassword"
 // import ForgotPasswod from "./pages/ForgotPasswod";
 import OpenRoute from "./components/core/Auth/OpenRoute";
 import UpdatePassword from "./pages/UpdatePassword";
+import MyProfile from "./components/core/Dashboard/MyProfile";
+import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./components/core/Auth/PrivateRoute";
+
 
 function App() {
   return (
@@ -22,6 +26,9 @@ function App() {
         {/* <Route path="/signup" element={<SignUp />} /> */}
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
+
+        <Route path="/dashboard/my-profile" element={<MyProfile />} />
+
         <Route
           path="/login"
           element={
@@ -29,6 +36,15 @@ function App() {
               {" "}
               <Login />
             </OpenRoute>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              {" "}
+              <Dashboard />
+            </PrivateRoute>
           }
         />
         <Route
@@ -59,6 +75,8 @@ function App() {
           }
         />
       </Routes>
+
+
 
       <ReviewSection />
 
