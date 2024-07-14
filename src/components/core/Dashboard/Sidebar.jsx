@@ -5,13 +5,17 @@ import SidebarLink from "../../core/Dashboard/SidebatLink"
 import { useNavigate } from 'react-router-dom'
 import ConfirmationModal from "../../common/ConfirmationModal"
 
+
+
 const Sidebar = () => {
 
     const{user,loading:profileLoading}=useSelector(state=>state.profile)
     const{loading:authLoading}=useSelector(state=>state.auth);
     const dispatch=useDispatch();
     const navigate=useNavigate();
-    const [ConfirmationModal,setConfirmationModal]=useState(null);
+    const logout=useSelector(state=>state.auth)
+    
+    const [confirmationModal,setConfirmationModal]=useState(null);
 
     if(authLoading || profileLoading){
         return(
@@ -70,7 +74,7 @@ const Sidebar = () => {
                 </button>
             </div>
         </div>
-        {consfirmationModal && <ConfirmationModal modalData={ConfirmationModal}/>}
+        {confirmationModal && <ConfirmationModal modalData={confirmationModal}/>}
     </div>
   )
 }

@@ -8,14 +8,14 @@ import Footer from "./components/common/Footer";
 import ReviewSection from "./components/common/ReviewSection";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-import ResetPassword from "./pages/ResetPassword"
+import ResetPassword from "./pages/ResetPassword";
 // import ForgotPasswod from "./pages/ForgotPasswod";
 import OpenRoute from "./components/core/Auth/OpenRoute";
 import UpdatePassword from "./pages/UpdatePassword";
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/core/Auth/PrivateRoute";
-
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -27,8 +27,6 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
 
-        <Route path="/dashboard/my-profile" element={<MyProfile />} />
-
         <Route
           path="/login"
           element={
@@ -38,15 +36,19 @@ function App() {
             </OpenRoute>
           }
         />
+
         <Route
-          path="/dashboard"
           element={
             <PrivateRoute>
-              {" "}
+             {" "}
               <Dashboard />
             </PrivateRoute>
           }
         />
+
+     <Route path="/dashboard/my-profile" element={<MyProfile />} />
+
+
         <Route
           path="/signup"
           element={
@@ -70,13 +72,12 @@ function App() {
           element={
             <OpenRoute>
               {" "}
-              <UpdatePassword/>
+              <UpdatePassword />
             </OpenRoute>
           }
         />
+        <Route path="*" element={<Error />} />
       </Routes>
-
-
 
       <ReviewSection />
 
