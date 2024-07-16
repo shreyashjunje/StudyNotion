@@ -9,23 +9,19 @@ import ProfileDropDown from "../core/Auth/ProfileDropDown";
 import { apiConnector } from "../../services/apiconnector";
 import { categories } from "../../services/apis";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import Home from "../../pages/Home"
-const arr=[
-    {
-      title: "python",
-      link: "/catalog/python",
-    },
-    {
-      title: "web-dev",
-      link: "/catalog/web-devlopment",
-    },
-  ];
-
-
+import Home from "../../pages/Home";
+const arr = [
+  {
+    title: "python",
+    link: "/catalog/python",
+  },
+  {
+    title: "web-dev",
+    link: "/catalog/web-devlopment",
+  },
+];
 
 const Navbar = () => {
-
-
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
   const { totalItems } = useSelector((state) => state.cart);
@@ -48,19 +44,20 @@ const Navbar = () => {
     fetchSublinks();
   }, []);
 
-  const matchRoute = (route) => {
-    return matchPath({ path: route }, location.pathname);
-  };
+    const matchRoute = (route) => {
+      return matchPath({ path: route }, location.pathname);
+    };
 
   return (
     <div className="flex h-14 items-center justify-center border-b-[1pxborder-b-richblack-700] ">
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
+        {/* LOGO */}
         <Link to="/">
           <img src={logo} width={160} height={42} alt="study notion logo" />
         </Link>
 
         {/* //navlinks */}
-        <nav className="hidden lg:flex">
+        <nav className=" lg:flex">
           <ul className="flex gap-x-6 text-richblack-25">
             {NavbarLinks.map((link, index) => (
               <li key={index}>
@@ -70,10 +67,9 @@ const Navbar = () => {
                     <RiArrowDropDownLine />
 
                     <div
-                      className="invisible absolute  left-[-80%] 
+                      className=" absolute  left-[-80%] 
                                         traslate-x-[-50%]
                                         traslate-y-[60%]
-                                        
                                          top-[100%]
                                         flex felx-col rounded-md bg-richblack-5 p-4 text-richblue-900
                                         opacity-0 transition-all duration-200 group-hover:visible
@@ -86,8 +82,7 @@ const Navbar = () => {
                       {arr?.length ? (
                         arr.map((a, index) => (
                           <Link to={`${a.link}`} key={index}>
-                            <p >{a.title}</p>
-                            
+                            <p>{a.title}</p>
                           </Link>
                         ))
                       ) : (
@@ -141,7 +136,7 @@ const Navbar = () => {
               </button>
             </Link>
           )}
-          {token !== null && <ProfileDropDown />} 
+          {token !== null && <ProfileDropDown />}
           {/* /??/here instead of home =>profiledropdown component */}
         </div>
       </div>
