@@ -102,6 +102,7 @@ function Home() {
                 <HighlightText text={"coding in seconds"} />
               </div>
             }
+
             subHeading={
               "Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson."
             }
@@ -176,7 +177,7 @@ function Home() {
         className=" mx-auto max-w-maxContent flex-col items-center justify-between gap-8
         first-letter bg-richblack-900 text-white"
       >
-        {/* <InstructorSection/> */}
+        <InstructorSection/>
 
         {/* {review secition } */}
         {/* <section> */}
