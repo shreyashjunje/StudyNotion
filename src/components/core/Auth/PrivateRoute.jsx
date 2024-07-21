@@ -6,9 +6,9 @@ function PrivateRoute({ children }) {
   const { token } = useSelector((state) => state.auth);
 
   if (token !== null) {
-    return <Navigate to="/dashboard/my-profile" />;
-  } else {
     return children;
+  } else {
+    return <Navigate to="/login" />;;
 
   }
 }
