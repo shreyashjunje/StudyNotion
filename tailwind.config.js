@@ -6,6 +6,10 @@ module.exports = {
       inter: ["Inter", "sans-serif"],
       "edu-sa": ["Edu SA Beginner", "cursive"],
       mono: ["Roboto Mono", "monospace"],
+
+    
+      'edu-sa-beginner': ['"Edu SA Beginner"', 'cursive'],
+    
     },
     boxShadow: {
       'custom-inset': '5px 5px 15px 5px #FBF5FF',
@@ -125,6 +129,18 @@ module.exports = {
         700: "#2D2D2D",
         800: "#171717",
         900: "#141414",
+      },
+      Red: {
+        50: '#ffe5e5',
+        100: '#fdbaba',
+        200: '#f28c8c',
+        300: '#e96060',
+        400: '#e03333',
+        500: '#d70a0a',
+        600: '#b00606',
+        700: '#890404',
+        800: '#610303',
+        900: '#3a0202',
       },
     },
     extend: {

@@ -1,50 +1,37 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import bgframe from "../../../assets/Images/frame.png"
-import LoginForm from './LoginForm'
-import SignUpForm from './SignUpForm'
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import bgframe from "../../../assets/Images/frame.png";
+import LoginForm from "./LoginForm";
+import SignUpForm from "./SignUpForm";
 
-const Template = ({title,description1,description2,Image,formType}) => {
-    const {loading}=useSelector(state=>state.auth)
-
-
+const Template = ({ title, description1, description2, Image, formType }) => {
+  const { loading } = useSelector((state) => state.auth);
 
   return (
-    <div>
-        {
-            loading ? (
-                <div className='Spinner'>
-                    Loading...
-                </div>
-            ) : (
-                <div>
+    <div className="w-full h-screen">
+      {loading ? (
+        <div className="Spinner">Loading...</div>
+      ) : (
+        <div className="flex flex-col gap-4 w-full mx-auto lg:flex-row items-center justify-evenly p-8">
 
-                    <div>
-                        <h1>
-                            {title}
-                        </h1>
-                        <p>
-                            {description1}
-                        </p>
-                        <p>
-                            {description2}
-                        </p>
-                        {
-                            formType==="Login" ? (<LoginForm/>) : (<SignUpForm/>)
-                        }
-                    </div>
+          <div className="flex flex-col gap-7 w-full px-12 lg:w-[40%]">
+            <div>
+                <h1 className="text-white text-4xl">{title}</h1>
+                <p className="text-white">{description1}</p>
+                <p className="font-edu-sa-beginner text-[#47A5C5]">{description2}</p>
+            </div>
+            
+            {formType === "Login" ? <LoginForm /> : <SignUpForm />}
+          </div>
 
-                    <div className='relative'>
-                        <img src={bgframe} alt="this  is backgroud friend" />
-                        <img src={Image} alt="" />
-                    </div>
-
-                </div>
-            )
-
-        }
+          <div className="relative ">
+            <img className="absolute top-4 left-4 w-full h-auto object-cover" src={bgframe} alt="this  is backgroud friend" />
+            <img className="relative w-full h-auto object-cover" src={Image} alt="" />
+          </div>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Template
+export default Template;

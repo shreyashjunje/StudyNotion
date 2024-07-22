@@ -33,12 +33,12 @@ const LoginForm = () => {
 
 
   return (
-    <div className='text-richblack-5'>
-        <form onSubmit={submithandler}>
+    <div className='text-richblack-5 flex flex-col'>
+        <form onSubmit={submithandler} className='flex flex-col gap-4'>
             <label>
-                <p>Email address<sup>*</sup></p>
+                <p>Email address <sup className='text-Red-400'>*</sup></p>
                 <input 
-                className='text-richblack-900'
+                className='bg-[#161D29] text-[#999DAA] p-3 w-full rounded-lg'
                 required
                 type="email"
                 name='email'
@@ -47,29 +47,36 @@ const LoginForm = () => {
                 placeholder='Enter Email Address'
                  />
             </label>
-            <label>
-                <p>Password<sup>*</sup></p>
-                <input
-                className='text-richblack-900' 
-                required
-                type={showPssword?"text":"password"}
-                name='password'
-                value={password}
-                onChange={onchangehandler}
-                placeholder='Enter Password'
-                
-                 />
-                 <span onClick={()=>setShowpassword(prev=>!prev)}>
-                    {
-                        showPssword ? (<FaRegEye />) : (<FaRegEyeSlash />)
-                    }
-                 </span>
-            </label>
-            <Link to="/forgot-password">
-                <p>Forgot Password</p>
-            </Link>
+            <label className='relative'>
+                <p>Password <sup className='text-Red-400'>*</sup></p>
+                <div>
+                    <input
+                    className='w-full bg-[#161D29] text-[#999DAA] p-3 rounded-lg' 
+                    required
+                    type={showPssword?"text":"password"}
+                    name='password'
+                    value={password}
+                    onChange={onchangehandler}
+                    placeholder='Enter Password'
 
-            <button type='submit' > 
+                    
+                    
+                    />
+                    <span className='absolute right-3 top-[42px] z-[10] cursor-pointer' onClick={()=>setShowpassword(prev=>!prev)}>
+                        {
+                            showPssword ? (<FaRegEye />) : (<FaRegEyeSlash />)
+                        }
+                    </span>
+                </div>
+                <Link to="/forgot-password">
+                     <p className='text-sm text-[#47A5C5] text-right py-1'>Forgot Password</p>
+                 </Link>
+                
+            </label>
+           
+
+           
+            <button className='flex flex-stretch bg-[#FFD60A] text-black p-3 rounded-lg w-full justify-center'  type='submit' > 
             Sign in
              </button>
         </form>

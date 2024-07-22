@@ -9,6 +9,8 @@ import ProfileDropDown from "../core/Auth/ProfileDropDown";
 import { apiConnector } from "../../services/apiconnector";
 import { categories } from "../../services/apis";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { GiHamburgerMenu } from "react-icons/gi";
+
 import Home from "../../pages/Home";
 const arr = [
   {
@@ -49,15 +51,20 @@ const Navbar = () => {
     };
 
   return (
-    <div className="flex h-14 items-center justify-center border-b-[1pxborder-b-richblack-700] ">
+    <div className="flex h-14 m-2  items-center justify-center border-b-[1pxborder-b-richblack-700] border-b-2 border-richblack-700">
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
-        {/* LOGO */}
-        <Link to="/">
-          <img src={logo} width={160} height={42} alt="study notion logo" />
-        </Link>
+        <div className="flex items-center gap-4">
+          {/* <GiHamburgerMenu className="visible md:hidden lg:hidden text-white w-6 h-6" /> */}
+
+          {/* LOGO */}
+          <Link to="/">
+                    <img src={logo} width={160} height={42} alt="study notion logo" />
+          </Link>
+        </div>
+        
 
         {/* //navlinks */}
-        <nav className=" lg:flex">
+        <nav className="hidden md:block lg:flex">
           <ul className="flex gap-x-6 text-richblack-25">
             {NavbarLinks.map((link, index) => (
               <li key={index}>
@@ -109,7 +116,7 @@ const Navbar = () => {
         </nav>
 
         {/* login section  */}
-        <div className="flex gap-x-4 items-center">
+        <div className="visible flex gap-x-4 items-center">
           {user && user?.accountType !== "Instructor " && (
             <Link to="/dashboard/cart" className="relative">
               <CiShoppingCart />
@@ -139,6 +146,9 @@ const Navbar = () => {
           {token !== null && <ProfileDropDown />}
           {/* /??/here instead of home =>profiledropdown component */}
         </div>
+
+       
+        
       </div>
     </div>
   );

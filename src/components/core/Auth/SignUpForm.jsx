@@ -92,16 +92,17 @@ const SignUpForm = () => {
   ];
 
   return (
-    <div className="text-richblack-5">
+    <div className="text-richblack-5 px-4">
       {/* Tab */}
       <Tab tabData={tabData} field={accountType} setField={setAccountType} />
-      <form onSubmit={submithandler}>
-        <div>
+      <form onSubmit={submithandler} className="flex flex-col gap-4">
+        {/* first ans last name div */}
+        <div className="flex gap-4">
           <label>
-            <p>First Name</p>
+            <p>First Name <sup className='text-Red-400'>*</sup></p>
             <input
               required
-              className="text-black"
+              className='bg-[#161D29] text-[#999DAA] p-3 w-full rounded-lg'
               type="text"
               placeholder="Enter First Name"
               name="firstName"
@@ -110,10 +111,10 @@ const SignUpForm = () => {
             />
           </label>
           <label>
-            <p>Last Name</p>
+            <p>Last Name <sup className='text-Red-400'>*</sup></p>
             <input
               required
-              className="text-black"
+              className='bg-[#161D29] text-[#999DAA] p-3 w-full rounded-lg'
               type="text"
               placeholder="Enter Last Name"
               name="lastName"
@@ -123,10 +124,10 @@ const SignUpForm = () => {
           </label>
         </div>
         <label>
-          <p>Email Address</p>
+          <p>Email Address <sup className='text-Red-400'>*</sup></p>
           <input
             required
-            className="text-black"
+            className='bg-[#161D29] text-[#999DAA] p-3 w-full rounded-lg'
             type="text"
             value={email}
             name="email"
@@ -136,77 +137,90 @@ const SignUpForm = () => {
         </label>
 
         {/* phone number section */}
-        <div>
-          <label>
+        <div className="flex">
+          <label className="">
             <p>Phone Number</p>
-            <select name="" id="" className="text-richblack-900">
-              {countrycode.map((code, index) => {
-                return (
-                  <option
-                    key={index}
-                    value={code.code}
-                    className="text-richblack-900"
-                  >
-                    {code.code}-{code.country}
-                  </option>
-                );
-              })}
-            </select>
-            <input
-              required
-              // maxLength={value=10 message="Invalid Phone Number"}
-              // minLength={value=8 message="Invalid Phone Number"}
-              className="text-richblack-900 [&::-webkit-inner-spin-button]:appearance-none [appearance:textfield]"
-              type="number"
-              maxLength={10}
-              minLength={8}
-              value={phoneNo}
-              name="phoneNo"
-              onChange={changehandler}
-            />
+            <div className="flex gap-4">
+              <select name="" id="" className=" w-[20%] bg-[#161D29] text-[#999DAA] p-3 rounded-lg">
+                {countrycode.map((code, index) => {
+                  return (
+                    <option
+                      key={index}
+                      value={code.code}
+                      className='bg-[#161D29] text-[#999DAA] p-3 w-full rounded-lg'
+                      >
+                      {code.code}-{code.country}
+                    </option>
+                  );
+                })}
+              </select>
+              <input
+                required
+                // maxLength={value=10 message="Invalid Phone Number"}
+                // minLength={value=8 message="Invalid Phone Number"}
+                className="bg-[#161D29] text-[#999DAA] p-3 w-full rounded-lg  [&::-webkit-inner-spin-button]:appearance-none [appearance:textfield]"
+                type="number"
+                maxLength={10}
+                minLength={8}
+                value={phoneNo}
+                name="phoneNo"
+                onChange={changehandler}
+              />
+            </div>
           </label>
         </div>
 
         {/* password section */}
-        <div>
+        <div className="flex gap-5">
           <label>
-            <p>
-              Create Password<sup>*</sup>
-              <FaCircleInfo />{" "}
+            <p className="flex gap-1 items-center">
+              Create Password <sup className='text-Red-400'>*</sup>
+              <FaCircleInfo />{" "}   
             </p>
-            <input
-              required
-              className="text-black"
-              type={showPassword ? "text" : "password"}
-              value={password}
-              name="password"
-              onChange={changehandler}
-              placeholder="Enter your password"
-            />
-            <span onClick={() => setShowpassword((prev) => !prev)}>
-              {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
-            </span>
+            <div className="flex relative">
+              <input
+                required
+                className='bg-[#161D29] text-[#999DAA] p-3 w-full rounded-lg'
+                type={showPassword ? "text" : "password"}
+                value={password}
+                name="password"
+                onChange={changehandler}
+                placeholder="Enter your password"
+              />
+              <span className="absolute right-3 top-4 " onClick={() => setShowpassword((prev) => !prev)}>
+                {showPassword ? <FaRegEyeSlash /> :  <FaRegEye />}
+              </span>
+            </div>
+           
           </label>
           <label>
             <p>
-              Confirm Password<sup>*</sup>
+              Confirm Password <sup className='text-Red-400'>*</sup>
             </p>
-            <input
-              required
-              className="text-black"
-              type={confirmPass ? "text" : "password"}
-              value={confirmPassword}
-              name="confirmPassword"
-              onChange={changehandler}
-              placeholder="Enter your password"
-            />
-            <span onClick={() => setConfirmPass((prev) => !prev)}>
-              {confirmPass ? <FaRegEye /> : <FaRegEyeSlash />}
-            </span>
+            <div className="relative">
+                <input
+                  required
+                  className='bg-[#161D29] text-[#999DAA] p-3 w-full rounded-lg'
+                  type={confirmPass ? "text" : "password"}
+                  value={confirmPassword}
+                  name="confirmPassword"
+                  onChange={changehandler}
+                  placeholder="Enter your password"
+                />
+                <span className="absolute right-3 top-4" onClick={() => setConfirmPass((prev) => !prev)}>
+                  {confirmPass ? <FaRegEyeSlash /> :  <FaRegEye />}
+                </span>
+            </div>
+           
           </label>
         </div>
 
-        <button type="submit">Sign up</button>
+        <button
+          type="submit"
+          className="flex flex-stretch bg-[#FFD60A] text-black p-3 my-4 rounded-lg w-full justify-center"
+        >
+          Sign up
+        </button>
       </form>
     </div>
   );
