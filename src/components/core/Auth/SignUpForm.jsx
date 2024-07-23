@@ -92,10 +92,10 @@ const SignUpForm = () => {
   ];
 
   return (
-    <div className="text-richblack-5 px-4">
+    <div className="text-richblack-5 px-2 ">
       {/* Tab */}
       <Tab tabData={tabData} field={accountType} setField={setAccountType} />
-      <form onSubmit={submithandler} className="flex flex-col gap-4">
+      <form onSubmit={submithandler} className="flex flex-col gap-4 ">
         {/* first ans last name div */}
         <div className="flex gap-4">
           <label>

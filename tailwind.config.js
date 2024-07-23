@@ -14,6 +14,10 @@ module.exports = {
     boxShadow: {
       'custom-inset': '5px 5px 15px 5px #FBF5FF',
     },
+    backgroundImage: {
+      'gradient-pink': 'linear-gradient(118.47deg, #EC008C -0.91%, #FC6767 104.91%)',
+    },
+    
     colors: {
       white: "#fff",
       black: "#000",

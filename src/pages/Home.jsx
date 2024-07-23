@@ -12,8 +12,7 @@ import { LearningLanguageSection } from "../components/core/Homepage/LearningLan
 import InstructorSection from "../components/core/Homepage/InstructorSection";
 import { ExploreMore } from "../components/core/Homepage/ExploreMore";
 import ReviewSlider from "../components/core/Homepage/ReviewSlider";
-import { motion } from "framer-motion"
-
+import { motion } from "framer-motion";
 
 function Home() {
   return (
@@ -26,15 +25,13 @@ function Home() {
                      group mt-16 p-1 mx-auto rounded-full bg-richblack-800 font-bold text-richblack-200
                     transition-all duration-200 hover:scale-95 w-fit"
           >
-            <motion.div
-              animate={{ x: [null, 100, 0] }}
-
+            <div
               className="flex flex-row items-center gap-2 rounded-full px-10 py-[5px]
                          transition-all duration-200 group-hover:bg-richblack-900 "
             >
               <p>Become an instructor</p>
               <FaArrowRight />
-            </motion.div>
+            </div>
           </div>
         </Link>
         <div className="text-center text-4xl font-semibold mt-7">
@@ -56,7 +53,6 @@ function Home() {
             Book A demo
           </CTAButton>
         </div>
-
         <div className="relative mx-3 flex flex-col   my-12 shadow-[10px_-5px_50px_-5px] shadow-blue-200 ">
           <video
             className="shadow-[20px_20px_rgba(255,255,255)]"
@@ -70,9 +66,6 @@ function Home() {
           </video>
           {/* <div className=" absolute lg:w-[1035px] h-[515px] top-[8px] left-[20px] gap-0 opacity-0 bg-richblack-5"></div> */}
         </div>
-
-
-
         {/* {code section 1} */}
         <div>
           <Codeblock
@@ -111,7 +104,6 @@ function Home() {
                 <HighlightText text={"coding in seconds"} />
               </div>
             }
-
             subHeading={
               "Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson."
             }
@@ -186,7 +178,7 @@ function Home() {
         className=" mx-auto max-w-maxContent flex-col items-center justify-between gap-8
         first-letter bg-richblack-900 text-white"
       >
-        <InstructorSection/>
+        <InstructorSection />
 
         {/* {review secition } */}
         {/* <section> */}

@@ -15,15 +15,17 @@ const AboutUs = () => {
         <div className=" font-bold flex flex-col items-center w-11/12 mb-40 text-richblack-25 font-inter">
           <div className="w-full text-center mt-20 mb-8">About Us</div>
 
-          <div className="text-center  lg:text-4xl font-semibold mt-7 mb-1">
-            Driving Innovation in Online Education for a
+          <div className="text-center text-4xl font-semibold mt-7 mb-1">
+            Driving Innovation in Online Education for a{" "}
+            <span className="">
+              {" "}
+              <HighlightText text={"Brighter Future"} />
+            </span>
           </div>
 
-          <div>
-            <HighlightText text={"Brighter Future"} />
-          </div>
+          <div></div>
 
-          <div className="w-[65%] mt-8 text-center text-lg font-bold text-richblack-300 text-[16px]">
+          <div className="w-full lg:w-[65%] mt-8 text-center text-lg font-bold text-richblack-300 text-[16px]">
             Studynotion is at the forefront of driving innovation in online
             education. We're passionate about creating a brighter future by
             offering cutting-edge courses, leveraging emerging technologies, and
@@ -31,22 +33,17 @@ const AboutUs = () => {
           </div>
         </div>
 
-
-
-        {/* <AboutUsPhotoframe /> */}
-
-
-
+        <AboutUsPhotoframe />
       </div>
 
-      {/* section 2 */}
+      {/* section 2 : highlighted text  */}
       <div className=" mt-60">
-        <div className="text-richblack-500 font-bold w-[80%]   text-center mx-auto text-4xl ">
+        <div className="text-richblack-500 font-bold w-full lg:w-[80%]  text-center mx-auto text-3xl lg:text-4xl ">
           <sup>
             <span className="inline-block text-richblack-300 text-3xl">"</span>
           </sup>{" "}
           We are passionate about revolutionizing the way we learn. Our
-          innovative platform <HighlightText text={"combines technology"} />,
+          innovative platform <HighlightText className="text]" text={"combines technology"} />,
           <span className="gradient-text-dark-orange"> expertise</span>,and
           community to create an{" "}
           <span className="gradient-text-light-orange">
@@ -66,16 +63,15 @@ const AboutUs = () => {
         <OurVisionAndMission />
       </div>
 
-      <ActiveStudentCount/>
+      <ActiveStudentCount />
 
       <section className="my-4">
-        <LearningGrid/>
+        <LearningGrid />
       </section>
 
-
       <section>
-        <ContactFormSection/>
-      </section>  
+        <ContactFormSection />
+      </section>
     </div>
   );
 };

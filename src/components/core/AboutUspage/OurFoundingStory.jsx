@@ -16,7 +16,7 @@ const OurFoundingStory = () => {
         </div>
 
         <div className='flex items-center lg:w-[40%] gap-2'>
-            <img src={FoundationStory} alt="this is image of FoundationStory" className='gap-2 w-[25rem] h-[16rem] lg:h-[278px] lg:w-[470px]'/>
+            <img src={FoundationStory} alt="this is image of FoundationStory" className='bg-gradient-bg gap-2 w-[25rem] h-[16rem] lg:h-[278px] lg:w-[470px] object-cover'/>
         </div>
     </div>
   )
