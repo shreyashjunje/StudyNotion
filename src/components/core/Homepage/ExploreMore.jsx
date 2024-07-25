@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import {HomePageExplore} from "../../../data/homepage-explore";
-import Home from '../../../pages/Home';
 import HighlightText from './HighlightText';
-import { CourseCard } from './CourseCard';
+import CourseCard from "./CourseCard"
 
 
 
@@ -37,7 +36,7 @@ export const ExploreMore = () => {
             Learn to build anything you can imagine
         </p>
 
-        <div className='mt-5 flex flex-row rounded-full bg-richblack-800 mb-5 border-richblack-100 py-1 px-1'> 
+        <div className='mt-5 flex flex-row items-center justify-center rounded-full bg-richblack-800 mb-5 border-richblack-100 py-1 px-1'> 
             {
                 tabsName.map((tab,index)=>{
                     return(

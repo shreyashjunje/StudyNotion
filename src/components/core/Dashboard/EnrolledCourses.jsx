@@ -1,4 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
+import { useState,useEffect } from 'react';
+import ProgressBar from '@ramonak/react-progress-bar';
+
 
 const EnrolledCourses = () => {
 
@@ -16,7 +20,7 @@ const EnrolledCourses = () => {
         }
     }
 
-    useEfffect(()=>{
+    useEffect(()=>{
         getEnrolledCourses();
     },[])
 

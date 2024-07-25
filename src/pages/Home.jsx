@@ -66,14 +66,16 @@ function Home() {
           </video>
           {/* <div className=" absolute lg:w-[1035px] h-[515px] top-[8px] left-[20px] gap-0 opacity-0 bg-richblack-5"></div> */}
         </div>
+
+
         {/* {code section 1} */}
-        <div>
+        <div className="flex  items-center justify-center mx-auto px-4">
           <Codeblock
             position={"lg:flex-row"}
             heading={
-              <div className="text-4xl font-semibold">
+              <div className="text-[36px]  font-semibold">
                 Unlock Your
-                <HighlightText text={"Coding Potentials"} />
+                <HighlightText text={"Coding Potentials"} /><br></br>
                 with our online courses
               </div>
             }
@@ -90,12 +92,12 @@ function Home() {
               linkto: "/login ",
               active: false,
             }}
-            codeblock={`<!DOCTYPE html>\n<html>\nhead><title>Example</\ntitle><linkrel="stylesheet"href="styles.css">\n/head>\nbody>\nh1><ahref="/">Header</a>\n/h1>\nnav><ahref="one/">One</a><ahref="two/">Two</\na><ahref="three/">Three</a>\n/nav>\n`}
+            codeblock={`<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n<link rel="stylesheet"href="styles.css">\n</head>\n<body>\n<h1><a href="/">Header</a>\n</h1>\n<nav>\n<a href="one/">One</a><a href="two/">Two</a>\n<a href="three/">Three</a>\n</nav>\n`}
             codeColor={"text-yellow-25"}
           />
         </div>
         {/* {code section 2 } */}
-        <div>
+        <div  className="flex items-center justify-center mx-auto px-4">
           <Codeblock
             position={"lg:flex-row-reverse"}
             heading={
@@ -105,7 +107,8 @@ function Home() {
               </div>
             }
             subHeading={
-              "Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson."
+              `Go ahead, give it a try. Our hands-on learning environment means 
+               you'll be writing real code from your very first lesson.`
             }
             ctabtn1={{
               btnText: "Continue Lesson",
@@ -117,12 +120,15 @@ function Home() {
               linkto: "/login ",
               active: false,
             }}
-            codeblock={`<!DOCTYPE html>\n<html>\nhead><title>Example</\ntitle><linkrel="stylesheet"href="styles.css">\n/head>\nbody>\nh1><a href="/">Header</a>\n/h1>\nnav><ahref="one/">One</a><ahref="two/">Two</\na><ahref="three/">Three</a>\n/nav>\n`}
+            codeblock={`<!DOCTYPE html>\n<html>\n<head><title>Example</title>\n<link rel="stylesheet"href="styles.css">\n</head>\n<body>\n<h1><a href="/">Header</a>\n</h1>\n<nav>\n<a href="one/">One</a><a href="two/">Two</a>\n<a href="three/">Three</a>\n</nav>\n`}
             codeColor={"text-yellow-25"}
           />
         </div>
-        `{/* just for responve!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-        {/* <ExploreMore/> */}
+
+
+
+        `
+        <ExploreMore/>
       </div>
 
       {/* section 2 */}

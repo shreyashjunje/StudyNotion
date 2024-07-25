@@ -7,17 +7,16 @@ module.exports = {
       "edu-sa": ["Edu SA Beginner", "cursive"],
       mono: ["Roboto Mono", "monospace"],
 
-    
-      'edu-sa-beginner': ['"Edu SA Beginner"', 'cursive'],
-    
+      "edu-sa-beginner": ['"Edu SA Beginner"', "cursive"],
     },
     boxShadow: {
-      'custom-inset': '5px 5px 15px 5px #FBF5FF',
+      "custom-inset": "5px 5px 15px 5px #FBF5FF",
     },
     backgroundImage: {
-      'gradient-pink': 'linear-gradient(118.47deg, #EC008C -0.91%, #FC6767 104.91%)',
+      "gradient-pink":
+        "linear-gradient(118.47deg, #EC008C -0.91%, #FC6767 104.91%)",
     },
-    
+
     colors: {
       white: "#fff",
       black: "#000",
@@ -135,16 +134,16 @@ module.exports = {
         900: "#141414",
       },
       Red: {
-        50: '#ffe5e5',
-        100: '#fdbaba',
-        200: '#f28c8c',
-        300: '#e96060',
-        400: '#e03333',
-        500: '#d70a0a',
-        600: '#b00606',
-        700: '#890404',
-        800: '#610303',
-        900: '#3a0202',
+        50: "#ffe5e5",
+        100: "#fdbaba",
+        200: "#f28c8c",
+        300: "#e96060",
+        400: "#e03333",
+        500: "#d70a0a",
+        600: "#b00606",
+        700: "#890404",
+        800: "#610303",
+        900: "#3a0202",
       },
     },
     extend: {
@@ -153,10 +152,11 @@ module.exports = {
         maxContentTab: "650px",
       },
       boxShadow: {
-        'custom-inset': '0px -1px 0px 0px rgba(255, 255, 255, 0.18)',
+        "custom-inset": "0px -1px 0px 0px rgba(255, 255, 255, 0.18)",
       },
       backgroundImage: {
-        'custom-gradient': 'linear-gradient(123.77deg, #8A2BE2 -6.46%, #FFA500 59.04%, #F8F8FF 124.53%)',
+        "custom-gradient":
+          "linear-gradient(123.77deg, #8A2BE2 -6.46%, #FFA500 59.04%, #F8F8FF 124.53%)",
       },
     },
   },
