@@ -67,7 +67,6 @@ function Home() {
           {/* <div className=" absolute lg:w-[1035px] h-[515px] top-[8px] left-[20px] gap-0 opacity-0 bg-richblack-5"></div> */}
         </div>
 
-
         {/* {code section 1} */}
         <div className="flex  items-center justify-center mx-auto px-4">
           <Codeblock
@@ -75,7 +74,8 @@ function Home() {
             heading={
               <div className="text-[36px]  font-semibold">
                 Unlock Your
-                <HighlightText text={"Coding Potentials"} /><br></br>
+                <HighlightText text={"Coding Potentials"} />
+                <br></br>
                 with our online courses
               </div>
             }
@@ -97,7 +97,7 @@ function Home() {
           />
         </div>
         {/* {code section 2 } */}
-        <div  className="flex items-center justify-center mx-auto px-4">
+        <div className="flex items-center justify-center mx-auto px-4">
           <Codeblock
             position={"lg:flex-row-reverse"}
             heading={
@@ -106,10 +106,8 @@ function Home() {
                 <HighlightText text={"coding in seconds"} />
               </div>
             }
-            subHeading={
-              `Go ahead, give it a try. Our hands-on learning environment means 
-               you'll be writing real code from your very first lesson.`
-            }
+            subHeading={`Go ahead, give it a try. Our hands-on learning environment means 
+               you'll be writing real code from your very first lesson.`}
             ctabtn1={{
               btnText: "Continue Lesson",
               linkto: "/signup ",
@@ -125,42 +123,40 @@ function Home() {
           />
         </div>
 
-
-
-        `
-        <ExploreMore/>
+        {/* <ExploreMore /> */}
       </div>
 
-      {/* section 2 */}
-      {/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-      <div className="bg-pure-greys-5 text-richblack-700">
-        <div className="homepage_bg h-[333px]">
-          <div className="w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto">
-            <div className="h-[150px]"></div>
+      <div className="homepage_bg  h-[333px]">
+        <div className="w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto">
+          <div className="h-[150px]"></div>
 
-            <div className="flex flex-row gap-7 text-white ">
-              <CTAButton active={true} linkto={"/signup"}>
-                <div className="flex items-center gap-3">
-                  Explore Full Catalog
-                  <FaArrowRight />
-                </div>
-              </CTAButton>
+          <div className="flex flex-row gap-7 text-white ">
+            <CTAButton active={true} linkto={"/signup"}>
+              <div className="flex items-center gap-3">
+                Explore Full Catalog
+                <FaArrowRight />
+              </div>
+            </CTAButton>
 
-              <CTAButton active={false} linkto={"/signup"}>
-                <div className="felx items-center">Learn more</div>
-              </CTAButton>
-            </div>
+            <CTAButton active={false} linkto={"/signup"}>
+              <div className="felx items-center">Learn more</div>
+            </CTAButton>
           </div>
         </div>
+      </div>
 
+      <div className="bg-pure-greys-5 text-richblack-700 top-8">
         <div className="mx-auto w-11/12 max-w-content flex flex-col  justify-between items-center gap-7">
-          <div className="flex flex-row gap-5 nb-10 mt-[95px]">
-            <div className="text-4xl font-semibold w-[45%]">
+          
+          {/* get your skill you need ----div  */}
+          <div className="flex flex-wrap lg:flex-row justify-center gap-12 mb-10 mt-[95px]">
+
+            <div className="text-4xl font-semibold w-full lg:w-[45%]">
               Get the skills you need for a{/* <div></div> */}
               <HighlightText text={"job that is in demand."} />
             </div>
 
-            <div className="flex flex-col gap-10 w-[40%] items-start">
+            <div className="flex flex-col gap-10 w-full lg:w-[40%] items-start">
               <div className="text-[16px]">
                 The modern StudyNotion is the dictates its own terms. Today, to
                 be a competitive specialist requires more than professional
@@ -171,9 +167,10 @@ function Home() {
                 <div>Learn More</div>
               </CTAButton>
             </div>
+
           </div>
 
-          {/* <TimelineSection/> */}
+          <TimelineSection/>
 
           <LearningLanguageSection />
         </div>
@@ -181,7 +178,7 @@ function Home() {
 
       {/* section 3 */}
       <div
-        className=" mx-auto max-w-maxContent flex-col items-center justify-between gap-8
+        className="absolute mt-8 mx-auto max-w-maxContent flex-col items-center justify-between gap-8
         first-letter bg-richblack-900 text-white"
       >
         <InstructorSection />

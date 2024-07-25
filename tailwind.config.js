@@ -196,6 +196,7 @@ module.exports = {
           "background-clip": "text",
           "text-fill-color": "transparent",
         },
+        
       });
     },
   ],
