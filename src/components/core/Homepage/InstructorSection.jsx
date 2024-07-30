@@ -27,7 +27,6 @@ const InstructorSection = () => {
           <div className="flex items-center gap-3 justify-center  w-[45%]  text-[13px] mt-8 py-4 lg:py-3 rounded-lg font-bold bg-yellow-50 text-black">
             Start Teaching Today
             <FaArrowRightLong />
-
           </div>
         </Link>
       </div>

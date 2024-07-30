@@ -13,6 +13,7 @@ import InstructorSection from "../components/core/Homepage/InstructorSection";
 import { ExploreMore } from "../components/core/Homepage/ExploreMore";
 import ReviewSlider from "../components/core/Homepage/ReviewSlider";
 import { motion } from "framer-motion";
+import Footer from "../components/common/Footer";
 
 function Home() {
   return (
@@ -123,10 +124,10 @@ function Home() {
           />
         </div>
 
-        {/* <ExploreMore /> */}
+        <ExploreMore />
       </div>
 
-      <div className="homepage_bg  h-[333px]">
+      <div className=" homepage_bg bg-[#F9F9F9] h-[333px] ">
         <div className="w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto">
           <div className="h-[150px]"></div>
 
@@ -183,6 +184,7 @@ function Home() {
       <InstructorSection/>
 
       {/* section 4 */}
+      <Footer />
       </div>
   );
 }

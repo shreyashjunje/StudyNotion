@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const FooterList = () => {
   return (
-    <div className="lg:w-[50%] flex flex-wrap flex-row justify-between pl-3 lg:pl-5 gap-5 text-richblack-500"  >
+    <div className="lg:w-[60%] flex  flex-row justify-between pl-3 lg:pl-5 gap-6 text-richblack-500"  >
      
         {FooterLink2.map((part, index) => {
           return (

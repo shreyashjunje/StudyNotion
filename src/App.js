@@ -100,7 +100,7 @@ function App() {
 
       {/* <ReviewSection /> */}
 
-      <Footer />
+     
     </div>
   );
 }

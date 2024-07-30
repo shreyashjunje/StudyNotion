@@ -30,7 +30,7 @@ const timelines = [
 
 const TimelineSection = () => {
   return (
-    <div className="flex  lg:flex-row flex-col gap-16  justify-center overflow-hidden m-10">
+    <div className="flex lg:flex-row flex-col gap-16  justify-center overflow-hidden m-10">
 
         <div className="w-full lg:w-[45%] flex flex-col gap-5 mt-6">
 
@@ -43,7 +43,7 @@ const TimelineSection = () => {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <h2 className="text-[18px] font-semibold">
+                  <h2 className="text-[1.2rem] font-semibold">
                     {timeline.Heading}
                   </h2>
                   <p className="text-base">{timeline.Description}</p>
@@ -55,7 +55,7 @@ const TimelineSection = () => {
         </div>
 
         <div className="relative shadow-blue-100 ">
-          <img src={TimelineImg} alt="this is timeline image" className="" />
+          <img src={TimelineImg} alt="this is timeline image" className="w-auto x`   object-cover" />
 
           <div
             className="abosolute lg:left-[50%]  lg:w-[70%]  bg-caribbeangreen-700 flex flex-row text-white uppercase py-6

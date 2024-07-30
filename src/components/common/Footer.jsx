@@ -12,7 +12,7 @@ const BottomFooter = ["Privacy Policy", "Cookie Policy", "Terms"];
 
 const Footer = () => {
   return (
-    <div className=" overflow-hidden  flex flex-col  lg:h-screen bg-richblack-800  justify-between lg:justify-evenly  lg:items-center   border-1">
+    <div className="relative overflow-hidden  flex flex-col  lg:h-screen bg-richblack-800  justify-between lg:justify-evenly  lg:items-center   border-1">
       {/* //top div */}
 
       <div className=" overflow-hidden  justify-evenly flex flex-col lg:flex-row gap-3 m-[3rem]  lg:gap-16 lg:m-6  ">
@@ -27,7 +27,7 @@ const Footer = () => {
                 <img src={logo} alt="this is studynotion logo" />
               </Link>
               <h2 className="text-md text-richblack-100">Company</h2>
-              <ul className="text-richblack-500 text-sm flex flex-col gap-2">
+              <ul className="text-richblack-500 text-sm flex flex-col gap-2 ">
                 <li>About</li>
                 <li>Careers</li>
                 <li>Affiliates</li>
@@ -99,8 +99,8 @@ const Footer = () => {
       <div className="w-[1200px] text-richblack-700 border-2 my-3"></div>
 
       {/* //bottom div  */}
-      <div className="flex justify-between lg:items-start items-center flex-col lg:flex-row gap-3 w-full">
-          <div className="flex flex-row">
+      <div className="flex justify-between flex-col lg:flex-row gap-4 w-[100%]">
+          <div className="flex flex-row text-richblack-100 justify-center items-center mx-auto">
             {BottomFooter.map((ele, i) => {
               return (
                 <div
@@ -119,7 +119,7 @@ const Footer = () => {
             })}
           </div>
 
-          <div className="text-center">Made with ❤️ CodeHelp © 2023 Studynotion</div>
+          <div className="text-center text-richblack-100 flex justify-center items-center mx-auto">Made with ❤️ CodeHelp © 2023 Studynotion</div>
         </div>
       
     </div>
