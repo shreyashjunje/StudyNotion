@@ -4,28 +4,31 @@ import { Link } from "react-router-dom";
 
 const FooterList = () => {
   return (
-    <div className="overflow-hidden flex sm:flex-wrap sm:w-1/2 ">
-      <div className=" flex sm:w-1/2 lg:flex-row gap-24 sm:mx-[6rem]  lg:gap-12">
+    <div className="lg:w-[50%] flex flex-wrap flex-row justify-between pl-3 lg:pl-5 gap-5 text-richblack-500"  >
+     
         {FooterLink2.map((part, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="w-[48%]  lg:w-[30%] mb-7 lg:pl-0">
               <h2 className="font-bold text-md mb-2 text-richblack-100">
                 {part.title}
               </h2>
-              <ul className="flex gap-2 flex-col text-richblack-500">
-                {part.links.map((list, index) => {
-                  return (
-                    <Link to={list.link}>
-                      <li key={index}>{list.title}</li>
-                    </Link>
-                  );
-                })}
-              </ul>
+              <div className="flex flex-col gap-2 mt-2">
+                    {part.links.map((link, index) => {
+                      return (
+                        <div
+                          key={index}
+                          className="text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200"
+                        >
+                          <Link to={link.link}>{link.title}</Link>
+                        </div>
+                      );
+                    })}
+                  </div>
             </div>
           );
         })}
-      </div>
     </div>
+    
   );
 };
 

@@ -173,29 +173,17 @@ function Home() {
           <TimelineSection/>
 
           <LearningLanguageSection />
+
+          
         </div>
       </div>
 
       {/* section 3 */}
-      <div
-        className="absolute mt-8 mx-auto max-w-maxContent flex-col items-center justify-between gap-8
-        first-letter bg-richblack-900 text-white"
-      >
-        <InstructorSection />
-
-        {/* {review secition } */}
-        {/* <section> */}
-        {/* <div className='flex flex-col gap-5 p-20'>
-                    <h2 className='text-center text-4xl font-semibold mt-20 mb-10'>
-                        Reviews from other learners
-                    </h2>
-                    
-                </div> */}
-        {/* </section> */}
-      </div>
+     {/* instructor section */}
+      <InstructorSection/>
 
       {/* section 4 */}
-    </div>
+      </div>
   );
 }
 

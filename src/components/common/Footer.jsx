@@ -7,16 +7,20 @@ import { ImGoogle3 } from "react-icons/im";
 import { FaTwitter } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 
+const BottomFooter = ["Privacy Policy", "Cookie Policy", "Terms"];
+
+
 const Footer = () => {
   return (
-    <div className=" overflow-hidden flex-wrap  lg:h-screen bg-richblack-800 flex flex-col justify-between lg:justify-evenly  lg:items-center lg:gap-15  border-1">
+    <div className=" overflow-hidden  flex flex-col  lg:h-screen bg-richblack-800  justify-between lg:justify-evenly  lg:items-center   border-1">
       {/* //top div */}
-      <div className=" overflow-hidden flex flex-col lg:flex-row gap-4 m-[3rem] lg:h-[538px] lg:gap-12  lg:m-6  lg:w-[1200px] ">
-        {/* div1 */}
-        {/* <div className='flex flex-row  '> */}
+
+      <div className=" overflow-hidden  justify-evenly flex flex-col lg:flex-row gap-3 m-[3rem]  lg:gap-16 lg:m-6  ">
+        
+
 
         {/* //part 1 */}
-        <div className=" flex flex-col sm:w-1/2  mx-[7rem]     text-richblack-5 gap-6  lg:flex-row  lg:gap-9">
+        <div className=" flex flex-col sm:w-1/2  text-richblack-5 gap-6  lg:flex-row  lg:gap-9">
           <div className="flex gap-16 lg:gap-9 ">
             <div className="flex sm:flex-wrap flex-col gap-3  ">
               <Link to="/">
@@ -80,43 +84,44 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        {/* </div> */}
+      
 
         {/* di2 */}
-        <div className="lg:visible hidden lg:border-2 border-richblack-700"></div>
+        <div className="visible border-2 opacity-[0.3] border-richblack-700"></div>
 
         {/* div3 */}
-        <div className="flex lg:flex-row overflow-hidden ">
-          <FooterList />
-        </div>
+        
+        <FooterList />
+        
+
       </div>
 
       <div className="w-[1200px] text-richblack-700 border-2 my-3"></div>
 
       {/* //bottom div  */}
-      <div className="flex flex-row items-center justify-between w-11/12 max-w-maxContent text-richblack-400 mx-auto pb-14 text-sm ">
-        <div className="flex justify-between lg:items-center flex-collg:flex-row gap-3 w-full">
-          <div className="flex flex-row text-richblack-500">
-            <ul className="flex flex-row gap-6">
-              <Link to={"/privacypolicy"}>
-                <li>Privacy Policy</li>
-              </Link>
-              <Link to={"/cookiepolicy"}>
-                <li>Privacy Policy</li>
-              </Link>
-              <Link to={"/terms"}>
-                <li>Terms</li>
-              </Link>
-            </ul>
+      <div className="flex justify-between lg:items-start items-center flex-col lg:flex-row gap-3 w-full">
+          <div className="flex flex-row">
+            {BottomFooter.map((ele, i) => {
+              return (
+                <div
+                  key={i}
+                  className={` ${
+                    BottomFooter.length - 1 === i
+                      ? ""
+                      : "border-r border-richblack-700 cursor-pointer hover:text-richblack-50 transition-all duration-200"
+                  } px-3 `}
+                >
+                  <Link to={ele.split(" ").join("-").toLocaleLowerCase()}>
+                    {ele}
+                  </Link>
+                </div>
+              );
+            })}
           </div>
 
-          <div className="flex text-center">
-            <p className="text-richblack-500">
-              Made with ❤️ CodeHelp © 2023 Studynotion           
-               </p>
-          </div>
+          <div className="text-center">Made with ❤️ CodeHelp © 2023 Studynotion</div>
         </div>
-      </div>
+      
     </div>
   );
 };
