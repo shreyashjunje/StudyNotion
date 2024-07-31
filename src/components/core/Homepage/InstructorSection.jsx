@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const InstructorSection = () => {
   return (
-    <div className="flex flex-col md:flex-row lg:flex-row items-center my-8 lg:my-auto justify-evenly h-screen overflow-hidden">
+    <div className="flex flex-col md:flex-row lg:flex-row items-center my-8 lg:my-auto justify-evenly lg:h-screen overflow-hidden">
 
       <div className="hidden md:block lg:block shadow-white-shadow">
           <img src={Instructor} alt="this is img of instructor" className="lg:w-[616px] h-[545px] "/>
