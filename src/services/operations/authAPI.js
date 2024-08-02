@@ -17,7 +17,6 @@ const {
 } = endpoints;
 
 export function sendOtp(email, navigate) {
-  
   return async (dispatch) => {
     const toastId = toast.loading("Loading...");
     dispatch(setLoading(true));
@@ -42,8 +41,9 @@ export function sendOtp(email, navigate) {
     }
     dispatch(setLoading(false));
     toast.dismiss(toastId);
+  }
   };
-}
+
 
 export function signUp(formData, navigate) {
   const {

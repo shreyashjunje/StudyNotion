@@ -20,6 +20,8 @@ import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
 import { ACCOUNT_TYPE } from "./utils/constants";
 import { useSelector } from "react-redux";
 import Cart from "./components/core/Dashboard/Cart"
+import VerifyEmail from "./pages/VerifyEmail";
+import Settings from "./components/core/Dashboard/Settings"
 
 
 
@@ -45,6 +47,9 @@ function App() {
           }
         />
 
+      
+
+
         <Route
           element={
             <PrivateRoute>
@@ -54,6 +59,8 @@ function App() {
           }
         >
           <Route path="/dashboard/my-profile" element={<MyProfile />} />
+          <Route path="/dashboard/Settings" element={<Settings />} />
+
           
 
           {
@@ -95,6 +102,14 @@ function App() {
             </OpenRoute>
           }
         />
+          <Route
+          path="/verify-email"
+          element={
+            <OpenRoute>
+              <VerifyEmail />
+            </OpenRoute>
+          }
+        />  
         <Route path="*" element={<Error />} />
       </Routes>
 
