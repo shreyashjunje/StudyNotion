@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa";
 // import {step} from "../../../../slices/courseSlice"
 import CourseInformationForm from './CourseInformation/CourseInformationForm';
 
-const RenderSteps = () => {
+const RenderSteps = () => { 
     const {step}=useSelector(state=>state.course);
 
     const steps=[
@@ -25,11 +25,11 @@ const RenderSteps = () => {
     <>
        <div>
           {
-            steps.map((item)=>{
+            steps.map((item,index)=>{
                 return (
-                    <div>
+                    <div key={index}>
                         <div>
-                            <div className={`${steps === item.id
+                            <div className={`${step === item.id
                                 ? "bg-yellow-900 border-yellow-50 text-yellow-50" 
                                 : "border-richblack-700 bg-richblack-800 text-richblack-300" }`}>
                                 {
@@ -48,9 +48,9 @@ const RenderSteps = () => {
 
        <div>
         {
-            steps.map(item=>{
+            steps.map((item,index)=>{
                 return(
-                    <div>
+                    <div key={index}>
                         <p>{item.title}</p>
                     </div>
                 )
