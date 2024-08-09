@@ -2,7 +2,7 @@ const Course = require("../models/Course");
 const Category = require("../models/Category");
 const User = require("../models/User");
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
-// Function to create a new course+
+// Function to create a new course
 exports.createCourse = async (req, res) => {
 	try {
 		// Get user ID from request object
@@ -20,8 +20,8 @@ exports.createCourse = async (req, res) => {
 			instructions,
 		} = req.body;
 
-		// Get thumbnail image from request files
-		const thumbnail = req.files.thumbnailImage;
+		 //Get thumbnail image from request files
+		 const thumbnail = req.files ? req.files.thumbnailImage : null;
 
 		// Check if any of the required fields are missing
 		if (
@@ -35,7 +35,7 @@ exports.createCourse = async (req, res) => {
 		) {
 			return res.status(400).json({
 				success: false,
-				message: "All Fields are Mandatory",
+				message: "All Fields are Mandatory 2",
 			});
 		}
 		if (!status || status === undefined) {
@@ -67,7 +67,7 @@ exports.createCourse = async (req, res) => {
 			process.env.FOLDER_NAME
 		);
 		console.log(thumbnailImage);
-		// Create a new course with the given details
+		 //Create a new course with the given details
 		const newCourse = await Course.create({
 			courseName,
 			courseDescription,
@@ -98,7 +98,7 @@ exports.createCourse = async (req, res) => {
 			{ _id: category },
 			{
 				$push: {
-					course: newCourse._id,
+					courses: newCourse._id,
 				},
 			},
 			{ new: true }
