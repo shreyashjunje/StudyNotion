@@ -4,6 +4,7 @@ import { FaCheck } from "react-icons/fa";
 // import {step} from "../../../../slices/courseSlice"
 import CourseInformationForm from './CourseInformation/CourseInformationForm';
 import CourseBuilderForm from './CourseBuilder/CourseBuilderForm';
+import CoursePublishForm from './CoursePublish/CoursePublishForm';
 
 const RenderSteps = () => { 
     const {step}=useSelector((state)=>state.course);
@@ -59,9 +60,13 @@ const RenderSteps = () => {
         }
        </div>
 
-       {step===1 && <CourseInformationForm/>}
-       {step===2 && <CourseBuilderForm/>}
-       {/* {step===3 && <CoursePublishForm/>} */}
+
+        <div>
+        {step==1 && <CourseInformationForm/>}
+       {step==2 && <CourseBuilderForm/>}
+       {step==3 && <CoursePublishForm/>}
+        </div>
+      
     </>
   )
 }
