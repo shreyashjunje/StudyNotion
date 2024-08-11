@@ -23,7 +23,7 @@ const NestedView = () => {
                     return(
                         <details key={section._id} open>
                             <summary>
-                                <div>
+                                <div className='flex items-center'>
                                   <RxDropdownMenu />
                                   <p>{section.sectionName}</p>
                                 </div>

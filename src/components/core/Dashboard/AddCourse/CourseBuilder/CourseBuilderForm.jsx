@@ -123,7 +123,7 @@ const CourseBuilderForm = () => {
           customClasses={"text-white"}
 
           >
-            <IoMdAddCircleOutline className='text-xl'/>
+            <IoMdAddCircleOutline className='text-xl' onClick={handleSubmit(courseSectionSubmit)}/>
 
 
           </IconBtn>

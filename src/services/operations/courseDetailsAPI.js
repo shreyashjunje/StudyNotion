@@ -106,29 +106,25 @@ export const fetchCourseCategories = async () => {
 // }
 export const addCourseDetails = async (data, token) => {
   let result = null
-  console.log("Data being sent to the API:", data);
-
-  // console.log("Data",data)
   const toastId = toast.loading("Loading...")
   try {
     const response = await apiConnector("POST", CREATE_COURSE_API, data, {
       "Content-Type": "multipart/form-data",
-      Authorization: `Bearer ${token}`,  // Corrected typo
+      Authorization: `Bearer ${token}`,
     })
-    console.log("CREATE COURSE API RESPONSE............=>", response)
+    console.log("CREATE COURSE API RESPONSE............", response)
     if (!response?.data?.success) {
-      throw new Error(response?.data?.message || "Could Not Add Course Details")
+      throw new Error("Could Not Add Course Details")
     }
     toast.success("Course Details Added Successfully")
     result = response?.data?.data
   } catch (error) {
-    console.log("CREATE COURSE API ERROR............", error.response ? error.response.data : error)
+    console.log("CREATE COURSE API ERROR............", error)
     toast.error(error.message)
   }
   toast.dismiss(toastId)
   return result
 }
-
 // import { toast } from "react-hot-toast";
 // import { apiConnector } from "./apiConnector"; // Adjust the import path as necessary
 
@@ -213,7 +209,7 @@ export const createSection = async (data, token) => {
   const toastId = toast.loading("Loading...")
   try {
     const response = await apiConnector("POST", CREATE_SECTION_API, data, {
-      Authorisation: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     })
     console.log("CREATE SECTION API RESPONSE............", response)
     if (!response?.data?.success) {

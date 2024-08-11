@@ -48,7 +48,7 @@ const upload = require("../middlewares/upload")
 // ********************************************************************************************************
 
 // Courses can Only be Created by Instructors
-router.post("/createCourse", auth, isInstructor,upload ,createCourse)
+router.post("/createCourse", auth, isInstructor,createCourse)
 //Add a Section to a Course
 router.post("/addSection", auth, isInstructor, createSection)
 // Update a Section
