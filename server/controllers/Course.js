@@ -21,7 +21,7 @@ exports.createCourse = async (req, res) => {
 		} = req.body;
 
 		 //Get thumbnail image from request files
-		 const thumbnail = req.files ? req.files.thumbnailImage : null;
+		const thumbnail = req.files.thumbnailImage;
 
 		// Check if any of the required fields are missing
 		if (
@@ -35,7 +35,7 @@ exports.createCourse = async (req, res) => {
 		) {
 			return res.status(400).json({
 				success: false,
-				message: "All Fields are Mandatory 2",
+				message: "All Fields are Mandatory",
 			});
 		}
 		if (!status || status === undefined) {

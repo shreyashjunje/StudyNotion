@@ -1,9 +1,8 @@
 // Import the required modules
 const express = require("express")
 const router = express.Router()
-
 // Import the Controllers
-
+const uploadImage=require("../middlewares/upload")
 // Course Controllers Import
 const {
   createCourse,
@@ -42,13 +41,14 @@ const {
 
 // Importing Middlewares
 const { auth, isInstructor, isStudent, isAdmin } = require("../middlewares/auth")
+const upload = require("../middlewares/upload")
 
 // ********************************************************************************************************
 //                                      Course routes
 // ********************************************************************************************************
 
 // Courses can Only be Created by Instructors
-router.post("/createCourse", auth, isInstructor, createCourse)
+router.post("/createCourse", auth, isInstructor,upload ,createCourse)
 //Add a Section to a Course
 router.post("/addSection", auth, isInstructor, createSection)
 // Update a Section

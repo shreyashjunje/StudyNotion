@@ -21,6 +21,7 @@ database.connect();
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
+app.use(fileUpload()); // If using express-fileupload
 
 app.use(cors());
 
