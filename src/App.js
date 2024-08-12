@@ -19,16 +19,14 @@ import Error from "./pages/Error";
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
 import { ACCOUNT_TYPE } from "./utils/constants";
 import { useSelector } from "react-redux";
-import Cart from "./components/core/Dashboard/Cart"
+import Cart from "./components/core/Dashboard/Cart";
 import VerifyEmail from "./pages/VerifyEmail";
-import Settings from "./components/core/Dashboard/Settings"
-import AddCourse from "./components/core/Dashboard/AddCourse"
-
-
+import Settings from "./components/core/Dashboard/Settings";
+import AddCourse from "./components/core/Dashboard/AddCourse";
 
 function App() {
-  const {user}=useSelector(state=>state.profile);
-  const {cart}=useSelector(state=>state.cart)
+  const { user } = useSelector((state) => state.profile);
+  const { cart } = useSelector((state) => state.cart);
   return (
     <div className="w-full min-h-screen bg-richblack-900 flex flex-col font-inter">
       <Navbar />
@@ -42,19 +40,14 @@ function App() {
           path="/login"
           element={
             <OpenRoute>
-              {" "}
               <Login />
             </OpenRoute>
           }
         />
 
-      
-
-
         <Route
           element={
             <PrivateRoute>
-              
               <Dashboard />
             </PrivateRoute>
           }
@@ -62,34 +55,27 @@ function App() {
           <Route path="/dashboard/my-profile" element={<MyProfile />} />
           <Route path="/dashboard/Settings" element={<Settings />} />
 
-          
+          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+              <Route
+                path="/dashboard/enrolled-courses"
+                element={<EnrolledCourses />}
+              />
+              <Route path="/dashboard/cart" element={<Cart />} />
+            </>
+          )}
 
-          {
-            user?.accountType === ACCOUNT_TYPE.STUDENT && (
-              <>
-                <Route path="/dashboard/enrolled-courses" element={<EnrolledCourses />} />
-                <Route path="/dashboard/cart" element={<Cart />} />
-              </>
-            )
-          }
-
-          {
-            user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
-              <>
-                <Route path="/dashboard/add-course" element={<AddCourse />} />
-                
-              </>
-            )
-          }
-
+          {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
+            <>
+              <Route path="/dashboard/add-course" element={<AddCourse />} />
+            </>
+          )}
         </Route>
-
 
         <Route
           path="/signup"
           element={
             <OpenRoute>
-              {" "}
               <SignUp />
             </OpenRoute>
           }
@@ -98,7 +84,6 @@ function App() {
           path="/forgot-password"
           element={
             <OpenRoute>
-              {" "}
               <ResetPassword />
             </OpenRoute>
           }
@@ -107,25 +92,22 @@ function App() {
           path="/update-password/:id"
           element={
             <OpenRoute>
-              {" "}
               <UpdatePassword />
             </OpenRoute>
           }
         />
-          <Route
+        <Route
           path="/verify-email"
           element={
             <OpenRoute>
               <VerifyEmail />
             </OpenRoute>
           }
-        />  
+        />
         <Route path="*" element={<Error />} />
       </Routes>
 
       {/* <ReviewSection /> */}
-
-     
     </div>
   );
 }
