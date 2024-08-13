@@ -2,8 +2,13 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createSubSection, updateSubSection } from '../../../../../services/operations/courseDetailsAPI';
 import { setCourseSectionData } from '../../../../../slices/viewCourseSlice';
+import { useState } from 'react';
 import { RxCross2 } from "react-icons/rx";
 import IconBtn from '../../../../common/IconBtn';
+import { useForm } from 'react-hook-form';
+import {toast} from 'react-hot-toast';
+import Upload from "../../../../core/Dashboard/AddCourse/Upload"
+import { setCourse } from '../../../../../slices/courseSlice';
 
 
 const SubSectionModal = ({modalData,setModalData,add=false,view=false,edit=false}) => {
@@ -13,13 +18,13 @@ const SubSectionModal = ({modalData,setModalData,add=false,view=false,edit=false
     const dispatch=useDispatch();
     const {course}=useSelector(state=>state.course)
     const {token}=useSelector(state=>state.auth)
-    const[loading,setLoading]=useSelector(false)
+    const[loading,setLoading]=useState(false)
 
     useEffect(()=>{
         if(view || edit){
             setValue("lectureTitle",modalData.title);
             setValue("lectureDesc",modalData.description);
-            setValue("lectureVideo",modalData.vieoUrl);
+            setValue("lectureVideo",modalData.videoUrl);
         }
     },[]);
 
@@ -57,7 +62,10 @@ const SubSectionModal = ({modalData,setModalData,add=false,view=false,edit=false
         const result =await updateSubSection(formData,token)
  
         if(result){
-            dispatch(setCourse(result))
+            const updatedCourseContent=course.courseContent.map((section)=>
+            section._id===modalData.sectionId ? result:section);
+            const updatedCourse={...course,courseContent:updatedCourseContent}
+            dispatch(setCourse(updatedCourse))
         }
 
         setModalData(null);
@@ -83,15 +91,18 @@ const SubSectionModal = ({modalData,setModalData,add=false,view=false,edit=false
         const formData=new FormData()
         formData.append("sectionId",modalData)
         formData.append("title",data.lectureTitle)
-        formData.append("description",lectureDesc)
-        formData.append("video",lectureVideo)
+        formData.append("description",data.lectureDesc)
+        formData.append("video",data.lectureVideo)
 
         setLoading(true)
 
         const result =await createSubSection(formData,token);
 
         if(result){
-            dispatch(setCourse(result))
+            const updatedCourseContent=course.courseContent.map((section)=>
+            section._id === modalData ? result:section);
+            const updatedCourse={...course,courseContent:updatedCourseContent}
+            dispatch(setCourse(updatedCourse))
         }
 
         setModalData(null);
@@ -109,9 +120,9 @@ const SubSectionModal = ({modalData,setModalData,add=false,view=false,edit=false
         <div>
 
             <div>
-                <p>{view && "Viewing"} {add && "Adding"} {edit && editing} Lecture</p>
-                <button onClick={()=>{!loading ? setModalData(null):{}}}>
-                  <RxCross2 />
+                <p>{view && "Viewing"} {add && "Adding"} {edit && "editing"} Lecture</p>
+                <button onClick={() => { if (!loading) setModalData(null); }}>
+                    <RxCross2 />
                 </button>
             </div>
 

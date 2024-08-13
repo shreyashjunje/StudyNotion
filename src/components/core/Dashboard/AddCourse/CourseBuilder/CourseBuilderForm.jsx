@@ -103,9 +103,11 @@ const CourseBuilderForm = () => {
       cancelEdit();
       return;
     }
-
+    console.log("name of section" , sectionName)
     setEditSectionName(sectionId);
+    // console.log("section id : ",sectionId)
     setValue("sectionName", sectionName);
+
   };
 
   return (

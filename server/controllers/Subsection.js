@@ -1,6 +1,6 @@
 // Import necessary modules
 const Section = require("../models/Section");
-const SubSection = require("../models/Subsection");
+const SubSection = require("../models/SubSection");
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
 
 // Create a new sub-section for a given section
@@ -54,8 +54,8 @@ exports.createSubSection = async (req, res) => {
   
   exports.updateSubSection = async (req, res) => {
     try {
-      const { sectionId, title, description } = req.body
-      const subSection = await SubSection.findById(sectionId)
+      const { sectionId,subSectionId ,title, description } = req.body
+      const subSection = await SubSection.findById(subSectionId)
   
       if (!subSection) {
         return res.status(404).json({
@@ -82,9 +82,13 @@ exports.createSubSection = async (req, res) => {
       }
   
       await subSection.save()
+
+      const updatedSection=await Section.findById(sectionId).populate("subSection")
+
   
       return res.json({
         success: true,
+        data:updatedSection,
         message: "Section updated successfully",
       })
     } catch (error) {
@@ -96,34 +100,79 @@ exports.createSubSection = async (req, res) => {
     }
   }
   
+  // exports.deleteSubSection = async (req, res) => {
+  //   try {
+  //     const { subSectionId, sectionId } = req.body
+  //     await Section.findByIdAndUpdate(
+  //       { _id: sectionId },
+  //       {
+  //         $pull: {
+  //           subSection: subSectionId,
+  //         },
+  //       }
+  //     )
+  //     const subSection = await SubSection.findByIdAndDelete({ _id: subSectionId })
+  
+  //     if (!subSection) {
+  //       return res
+  //         .status(404)
+  //         .json({ success: false, message: "SubSection not found" })
+  //     }
+
+  //     const updatedSection=await Section.findById(sectionId).populate("subSection")
+  
+  //     return res.json({
+  //       success: true,
+  //       data:updatedSection,
+  //       message: "SubSection deleted successfully",
+  //     })
+  //   } catch (error) {
+  //     console.error(error)
+  //     return res.status(500).json({
+  //       success: false,
+  //       message: "An error occurred while deleting the SubSection",
+  //     })
+  //   }
+  // }
+
   exports.deleteSubSection = async (req, res) => {
     try {
-      const { subSectionId, sectionId } = req.body
-      await Section.findByIdAndUpdate(
-        { _id: sectionId },
-        {
-          $pull: {
-            subSection: subSectionId,
-          },
-        }
-      )
-      const subSection = await SubSection.findByIdAndDelete({ _id: subSectionId })
-  
+      const { subSectionId, sectionId } = req.body;
+
+      console.log("subsection id",subSectionId)
+      console.log("section id",sectionId)
+
+      
+      // Remove subSection reference from the Section document
+      await Section.findByIdAndUpdate(sectionId, {
+        $pull: { subSection: subSectionId }
+      });
+
+
+      // Delete the SubSection document
+      const subSection = await SubSection.findByIdAndDelete(subSectionId);
+
+      
       if (!subSection) {
-        return res
-          .status(404)
-          .json({ success: false, message: "SubSection not found" })
+        return res.status(404).json({
+          success: false,
+          message: "SubSection not found"
+        });
       }
   
-      return res.json({
+      // Retrieve the updated Section document
+      const updatedSection = await Section.findById(sectionId).populate("subSection");
+  
+      return res.status(200).json({
         success: true,
-        message: "SubSection deleted successfully",
-      })
+        data: updatedSection,
+        message: "SubSection deleted successfully"
+      });
     } catch (error) {
-      console.error(error)
+      console.error("Error deleting SubSection:", error);
       return res.status(500).json({
         success: false,
-        message: "An error occurred while deleting the SubSection",
-      })
+        message: "An error occurred while deleting the SubSection"
+      });
     }
-  }
+  };
