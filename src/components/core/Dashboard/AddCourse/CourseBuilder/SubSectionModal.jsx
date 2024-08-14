@@ -28,7 +28,7 @@ const SubSectionModal = ({modalData,setModalData,add=false,view=false,edit=false
         }
     },[]);
 
-    const isUpdated=()=>{
+    const isFormUpdated=()=>{
         const currentValues=getValues()
 
         if(currentValues.lectureTitle!==modalData.title || 
@@ -62,8 +62,23 @@ const SubSectionModal = ({modalData,setModalData,add=false,view=false,edit=false
         const result =await updateSubSection(formData,token)
  
         if(result){
-            const updatedCourseContent=course.courseContent.map((section)=>
-            section._id===modalData.sectionId ? result:section);
+            // const updatedCourseContent=course.courseContent.map((section)=>
+            // section._id===modalData.sectionId ? result:section);
+
+            const updatedCourseContent = course.courseContent.map((section) => {
+                if (section._id === modalData.sectionId) {
+                    const updatedSubSections = section.subSection.map((sub) => {
+                        if (sub._id === modalData._id) {
+                            // Merge the existing subsection data with the updated result
+                            return { ...sub, ...result };
+                        }
+                        return sub;
+                    });
+    
+                    return { ...section, subSection: updatedSubSections };
+                }
+                return section;
+            });
             const updatedCourse={...course,courseContent:updatedCourseContent}
             dispatch(setCourse(updatedCourse))
         }
@@ -79,7 +94,7 @@ const SubSectionModal = ({modalData,setModalData,add=false,view=false,edit=false
         }
 
         if(edit){
-            if(!isUpdated){
+            if(!isFormUpdated()){
                 toast.error("No changes made to the form")
             }else{
                 handleEditSubSection();
@@ -121,7 +136,7 @@ const SubSectionModal = ({modalData,setModalData,add=false,view=false,edit=false
 
             <div>
                 <p>{view && "Viewing"} {add && "Adding"} {edit && "editing"} Lecture</p>
-                <button onClick={() => { if (!loading) setModalData(null); }}>
+                <button onClick={() => { if (!loading) setModalData(null) }}>
                     <RxCross2 />
                 </button>
             </div>

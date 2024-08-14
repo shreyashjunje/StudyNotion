@@ -97,25 +97,90 @@ const NestedView = ({handleChangeEditSectionName}) => {
   //   setConfirmationModal(null)
   // }
 
-  const handleDeleteSubSection = async (subSectionId, sectionId) => {
-    const result = await deleteSubSection({ subSectionId, sectionId, token })
+  // const handleDeleteSubSection = async (subSectionId, sectionId) => {
+  //   const result = await deleteSubSection({ subSectionId, sectionId, token })
+  //   if (result) {
+  //     // Update the structure of the course
+  //     const updatedCourseContent = course.courseContent.map((section) => {
+  //       if (section._id === sectionId) {
+  //         // Filter out the deleted subsection from the section's subsections
+  //         const updatedSubsections = section.subsections.filter(
+  //           (subsection) => subsection._id !== subSectionId
+  //         )
+  //         return { ...section, subsections: updatedSubsections }
+  //       }
+  //       return section
+  //     })
+  //     const updatedCourse = { ...course, courseContent: updatedCourseContent }
+  //     dispatch(setCourse(updatedCourse))
+  //   }
+  //   setConfirmationModal(null)
+  // }
+
+  // Assuming you have the necessary imports and context setup for dispatch and setCourse
+
+// const handleDeleteSubSection = async (subSectionId, sectionId) => {
+//   try {
+//     // Call the function to delete the subsection and pass the required data
+//     const result = await deleteSubSection({ subSectionId, sectionId, token });
+    
+//     // Check if the deletion was successful
+//     if (result) {
+//       // Update the structure of the course
+//       const updatedCourseContent = course.courseContent.subSection.filter(
+//         (subSectionId) => subSectionId._id !== subSectionId
+//       );
+//       // Create an updated course object with the new course content
+//       const updatedCourse = { ...course, courseContent: updatedCourseContent };
+      
+//       // Dispatch the updated course to update the state
+//       dispatch(setCourse(updatedCourse));
+//     }
+    
+//     // Close the confirmation modal
+//     setConfirmationModal(null);
+    
+//   } catch (error) {
+//     // Handle any errors that occur during the deletion process
+//     console.error('Error deleting subsection:', error);
+//   }
+// };
+
+const handleDeleteSubSection = async (subSectionId, sectionId) => {
+  try {
+    // Call the function to delete the subsection and pass the required data
+    const result = await deleteSubSection({ subSectionId, sectionId, token });
+
+    // Check if the deletion was successful
     if (result) {
       // Update the structure of the course
       const updatedCourseContent = course.courseContent.map((section) => {
         if (section._id === sectionId) {
           // Filter out the deleted subsection from the section's subsections
-          const updatedSubsections = section.subsections.filter(
-            (subsection) => subsection._id !== subSectionId
-          )
-          return { ...section, subsections: updatedSubsections }
+          const updatedSubSections = section.subSection.filter(
+            (sub) => sub._id !== subSectionId
+          );
+          return { ...section, subSection: updatedSubSections };
         }
-        return section
-      })
-      const updatedCourse = { ...course, courseContent: updatedCourseContent }
-      dispatch(setCourse(updatedCourse))
+        return section;
+      });
+
+      // Create an updated course object with the new course content
+      const updatedCourse = { ...course, courseContent: updatedCourseContent };
+
+      // Dispatch the updated course to update the state
+      dispatch(setCourse(updatedCourse));
     }
-    setConfirmationModal(null)
+
+    // Close the confirmation modal
+    setConfirmationModal(null);
+  } catch (error) {
+    // Handle any errors that occur during the deletion process
+    console.error('Error deleting subsection:', error);
   }
+};
+
+
   
 
 
@@ -189,7 +254,7 @@ const NestedView = ({handleChangeEditSectionName}) => {
                                   text2:"Selected lecture will be deleted",
                                   btn1Text:"Delete",
                                   btn2Text:"Cancel",
-                                  btn1Handler:()=>handleDeleteSubSection(section._id,data._id),
+                                  btn1Handler:()=>handleDeleteSubSection(data._id,section._id),
                                   btn2Handler:()=>setConfirmationModal(null)
                                 })
                               }}>
