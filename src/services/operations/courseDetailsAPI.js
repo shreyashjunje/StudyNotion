@@ -356,6 +356,8 @@ export const fetchInstructorCourses = async (token) => {
   return result;
 };
 
+
+
 // delete a course
 export const deleteCourse = async (data, token) => {
   const toastId = toast.loading("Loading...");
