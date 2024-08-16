@@ -4,6 +4,7 @@ const Category = require("../models/Category");
 const CourseProgress=require("../models/CourseProgress")
 const User = require("../models/User");
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
+
 // Function to create a new course
 exports.createCourse = async (req, res) => {
 	try {
@@ -122,6 +123,7 @@ exports.createCourse = async (req, res) => {
 	}
 };
 
+
 exports.getAllCourses = async (req, res) => {
 	try {
 		const allCourses = await Course.find(
@@ -200,6 +202,7 @@ exports.getCourseDetails = async (req, res) => {
         });
     }
 }
+
 // Edit Course Details
 exports.editCourse = async (req, res) => {
 	try {
@@ -484,4 +487,5 @@ exports.getFullCourseDetails = async (req, res) => {
 	  })
 	}
   }
-  
+
+ 
