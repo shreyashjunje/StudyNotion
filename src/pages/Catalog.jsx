@@ -11,14 +11,16 @@ const Catalog = () => {
 
     const {catalogName}=useParams()
     const [catalogPageData,setCatalogPageData]=useState(null);
-    const [categoryId,setCategoryId]=useState("")
+    const [categoryId,setCategoryId]=useState(null)
 
     // fetch all categories
     useEffect(()=>{
         const getCategories=async ()=>{
-            const res=await apiConnector("Get",categories.CATEGPRIES_API);
+            const res=await apiConnector("Get",categories.CATEGORIES_API);
             const category_id=
             res?.data?.data?.filter((ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName)[0]._id;
+            console.log("id: ______",category_id)
+
             setCategoryId(category_id)
 
         }
@@ -29,6 +31,7 @@ const Catalog = () => {
         const getCategoryDetails=async ()=>{
             try{
                 const res=await getCatalogPageData(categoryId)
+                console.log("printing yash: ",res)
                 setCatalogPageData(res)
 
 
@@ -84,9 +87,9 @@ const Catalog = () => {
                     <div className='grid grid-cols-1 lg:grid-cols-2'>
                         {
                             catalogPageData?.data?.mostSellingCourses?.slice(0,4)
-                            .map((course,index)=>{
+                            .map((course,index)=>(
                                 <Course_Card course={course} key={index} height={"h-[400px]"}/>
-                            })
+                            ))
                         }
                     </div>
                 </div>

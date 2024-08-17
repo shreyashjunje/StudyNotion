@@ -2,6 +2,7 @@ import React from 'react'
 import {toast} from 'react-hot-toast'
 import { apiConnector } from '../apiconnector'
 import { catalogData } from '../apis'
+import { compose } from '@reduxjs/toolkit'
 
 
 export const getCatalogPageData =async (categoryId) => {
@@ -9,9 +10,12 @@ export const getCatalogPageData =async (categoryId) => {
     let result=[]
 
     try{
+        console.log("categoryId hello",categoryId)
         const response=await apiConnector("POST",catalogData.CATALOGPAGEDATA_API,
             {categoryId: categoryId,}
         )
+
+        console.log("response hello",response)
 
         if(!response?.data?.success){
             throw new Error("could not fetch category page data")
