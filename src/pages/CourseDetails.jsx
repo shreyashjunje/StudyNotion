@@ -8,12 +8,13 @@ import ConfirmationModal from '../components/common/ConfirmationModal';
 import RatingStars from '../components/common/RatingStars';
 import { formatDate } from '../services/formatDate';
 import CourseDetailsCard from '../components/core/Course/CourseDetailsCard';
+import Error from "../pages/Error"
 
 const CourseDetails = () => {
 
     const {user} = useSelector((state)=>state.profile);
     const {token} = useSelector((state)=>state.auth);
-    const {loading}=useSelector((state)=>State.profile);
+    const {loading}=useSelector((state)=>state.profile);
     const {paymentLoading}=useSelector((state)=>state.course)
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -39,7 +40,7 @@ const CourseDetails = () => {
 
             }
             catch(error){
-                cosnoel.log("could not fetch course details")
+                console.log("could not fetch course details")
             }
         }
         getFullCourseDetails()

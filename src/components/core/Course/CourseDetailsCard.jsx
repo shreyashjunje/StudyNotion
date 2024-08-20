@@ -3,6 +3,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { ACCOUNT_TYPE } from '../../../utils/constants';
+import toast from 'react-hot-toast';
+import { addToCart } from '../../../slices/cartSlice';
 
 const CourseDetailsCard = ({course,setConfirmationModal,handleBuyCourse}) => {
 
