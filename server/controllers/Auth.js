@@ -152,6 +152,9 @@ exports.login = async (req, res) => {
 
     // Generate JWT token and Compare Password
     if (await bcrypt.compare(password, user.password)) {
+      
+      // jwt.sign(payload, secretOrPrivateKey, [options, callback])
+
       const token = jwt.sign(
         { email: user.email, id: user._id, accountType: user.accountType },
         process.env.JWT_SECRET,
@@ -232,8 +235,8 @@ exports.sendotp = async (req, res) => {
       otp,
     });
   } catch (error) {
-    console.log(error.message);
-    return res.status(500).json({ success: false, error: error.message });
+      console.log(error.message);
+      return res.status(500).json({ success: false, error: error.message });
   }
 };
 

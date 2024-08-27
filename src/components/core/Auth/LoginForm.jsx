@@ -4,17 +4,14 @@ import { FaRegEye } from "react-icons/fa";
 import { useState } from 'react';
 import {  useDispatch } from 'react-redux';
 import { Link,useNavigate } from 'react-router-dom';
-
 import {login} from '../../../services/operations/authAPI';
+
 const LoginForm = () => {
     const[formData,setFormData]=useState({email:"",password:""})
     const[showPssword,setShowpassword]=useState(false);
-
     const navigate=useNavigate();
     const dispatch=useDispatch();
-
     const {email,password}=formData;
-
     const onchangehandler=(e)=>{
         setFormData((prevData)=>({
             ...prevData,
@@ -22,15 +19,11 @@ const LoginForm = () => {
      })
         )
     }
-
     const submithandler=(event)=>{
         event.preventDefault();
         // console.log(formData)
         dispatch(login(email,password,navigate))
     }
-
-
-
 
   return (
     <div className='text-richblack-5 flex flex-col'>

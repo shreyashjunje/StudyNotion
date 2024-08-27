@@ -20,7 +20,7 @@ exports.createCourse = async (req, res) => {
 			tag,
 			category,
 			status,
-			instructions,
+			instructions,	
 		} = req.body;
 
 		 //Get thumbnail image from request files
@@ -298,6 +298,7 @@ exports.getInstructorCourses = async (req, res) => {
 	}
   }
 
+
 // exports.deleteCourse = async (req, res) => {
 // 	try {
 // 	  const { courseId } = req.body
@@ -348,6 +349,7 @@ exports.getInstructorCourses = async (req, res) => {
 // 	  })
 // 	}
 //   }
+
 
 exports.deleteCourse = async (req, res) => {
 	try {
