@@ -111,21 +111,20 @@ const CourseBuilderForm = () => {
   };
 
   return (
-    <div className="text-white">
-      <h1>Course Builder</h1>
-      <form onSubmit={handleSubmit(courseSectionSubmit)}>
+    <div className="space-y-8 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6">
+      <h1 className="text-2xl font-semibold text-richblack-5">Course Builder</h1>
+      <form onSubmit={handleSubmit(courseSectionSubmit)} className="space-y-4">
         <div>
-          <label htmlFor="sectionName">
-            Section Name<sup>*</sup>
+          <label className="text-sm text-richblack-5" htmlFor="sectionName">
+            Section Name<sup lassName="text-pink-200">*</sup>
           </label>
           <input
             type="text"
             placeholder="Enter Section Name"
             id="sectionName"
             {...register("sectionName", { required: true })}
-            className=""
-          />
-          {errors.sectionName && <span>Section Name is required</span>}
+            className="form-style w-full"          />
+          {errors.sectionName && <span className="ml-2 text-xs tracking-wide text-pink-200">Section Name is required</span>}
         </div>
         <div>
           <IconBtn
@@ -141,7 +140,7 @@ const CourseBuilderForm = () => {
           </IconBtn>
 
           {editSectionName && (
-            <button type="button" onClick={cancelEdit} className="">
+            <button type="button" onClick={cancelEdit} className="text-sm text-richblack-300 underline">
               Cancel edit
             </button>
           )}
@@ -151,8 +150,8 @@ const CourseBuilderForm = () => {
         <NestedView handleChangeEditSectionName={handleChangeEditSectionName} />
       )}
 
-      <div>
-        <button onClick={goback}>
+      <div className="flex justify-end gap-x-3">
+        <button onClick={goback} className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900`}>
           <MdArrowBackIosNew /> Back
         </button>
         <IconBtn text="Next" onclick={gotoNext}>

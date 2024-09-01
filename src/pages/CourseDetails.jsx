@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react"
 import { BiInfoCircle } from "react-icons/bi"
 import { HiOutlineGlobeAlt } from "react-icons/hi"
-import ReactMarkdown from "react-markdown"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
-import CourseAccordianBar from "../components/core/Course/CourseAccordianBar"
+import ReactMarkdown  from "react-markdown"
 import ConfirmationModal from "../components/common/ConfirmationModal"
 import Footer from "../components/common/Footer"
 import RatingStars from "../components/common/RatingStars"
-
+import CourseAccordionBar from "../components/core/Course/CourseAccordianBar"
 import CourseDetailsCard from "../components/core/Course/CourseDetailsCard"
 import { formatDate } from "../services/formatDate"
 import { fetchCourseDetails } from "../services/operations/courseDetailsAPI"
-import {buyCourse} from "../services/operations/studentFeatureAPI"
+import { buyCourse } from "../services/operations/studentFeatureAPI"
 import GetAvgRating from "../utils/avgRating"
 import Error from "./Error"
 
@@ -30,34 +29,55 @@ function CourseDetails() {
 
   // Declear a state to save the course details
   const [response, setResponse] = useState(null)
-  
+  console.log("hello")
   const [confirmationModal, setConfirmationModal] = useState(null)
+  // useEffect(() => {
+  //   // Calling fetchCourseDetails fucntion to fetch the details
+  //   ;(async () => {
+  //     try {
+  //       const res = await fetchCourseDetails(courseId)
+  //       console.log("course details res: ", res)
+  //       setResponse(res)
+  //     } catch (error) {
+  //       console.log("Could not fetch Course Details")
+  //     }
+  //   })()
+  // }, [courseId])
+
   useEffect(() => {
-    // Calling fetchCourseDetails fucntion to fetch the details
     ;(async () => {
       try {
         const res = await fetchCourseDetails(courseId)
-        // console.log("course details res: ", res)
-        setResponse(res)
+        console.log("course details res: ", res)
+        if (res.success) {
+          setResponse(res)
+        } else {
+          console.log("Error in response:", res.message)
+          setResponse({ success: false }) // This will trigger the Error component
+        }
       } catch (error) {
-        console.log("Could not fetch Course Details")
+        console.log("Could not fetch Course Details", error)
+        setResponse({ success: false }) // This will trigger the Error component
       }
     })()
   }, [courseId])
 
-  // console.log("response: ", response)
+  console.log("response: ", response)
 
   // Calculating Avg Review count
   const [avgReviewCount, setAvgReviewCount] = useState(0)
   useEffect(() => {
-    const count = GetAvgRating(response?.data?.courseDetails?.ratingAndReviews)
+    const count = GetAvgRating(response?.data?.courseDetails.ratingAndReviews)
     setAvgReviewCount(count)
   }, [response])
+
   // console.log("avgReviewCount: ", avgReviewCount)
 
   // // Collapse all
   // const [collapse, setCollapse] = useState("")
+  
   const [isActive, setIsActive] = useState(Array(0))
+
   const handleActive = (id) => {
     // console.log("called", id)
     setIsActive(
@@ -66,6 +86,8 @@ function CourseDetails() {
         : isActive.filter((e) => e != id)
     )
   }
+  console.log("response handling: ",response)
+
 
   // Total number of lectures
   const [totalNoOfLectures, setTotalNoOfLectures] = useState(0)
@@ -84,17 +106,14 @@ function CourseDetails() {
       </div>
     )
   }
+
+  console.log("response handling: ",response)
   if (!response.success) {
     return <Error />
   }
 
-  console.log("response1: 1",response)
-  const courseDetails = response.data?.[0] || {};
-  console.log("courseDetails",courseDetails)
-
-
   const {
-    // _id: course_id,
+    _id: course_id,
     courseName,
     courseDescription,
     thumbnail,
@@ -103,11 +122,9 @@ function CourseDetails() {
     courseContent,
     ratingAndReviews,
     instructor,
-    studentsEnrolled,
+    studentsEnroled,
     createdAt,
-  } = courseDetails
-
-  console.log("Response2 : ",response.data)
+  } = response.data?.courseDetails
 
   const handleBuyCourse = () => {
     if (token) {
@@ -160,7 +177,7 @@ function CourseDetails() {
                 <span className="text-yellow-25">{avgReviewCount}</span>
                 <RatingStars Review_Count={avgReviewCount} Star_Size={24} />
                 <span>{`(${ratingAndReviews.length} reviews)`}</span>
-                <span>{`${studentsEnrolled.length} students enrolled`}</span>
+                <span>{`${studentsEnroled.length} students enrolled`}</span>
               </div>
               <div>
                 <p className="">
@@ -191,7 +208,7 @@ function CourseDetails() {
           {/* Courses Card */}
           <div className="right-[1rem] top-[60px] mx-auto hidden min-h-[600px] w-1/3 max-w-[410px] translate-y-24 md:translate-y-0 lg:absolute  lg:block">
             <CourseDetailsCard
-              course={response?.data}
+              course={response?.data?.courseDetails}
               setConfirmationModal={setConfirmationModal}
               handleBuyCourse={handleBuyCourse}
             />
@@ -236,7 +253,7 @@ function CourseDetails() {
             {/* Course Details Accordion */}
             <div className="py-4">
               {courseContent?.map((course, index) => (
-                <CourseAccordianBar
+                <CourseAccordionBar
                   course={course}
                   key={index}
                   isActive={isActive}
