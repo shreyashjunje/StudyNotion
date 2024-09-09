@@ -354,6 +354,8 @@ exports.getInstructorCourses = async (req, res) => {
 exports.deleteCourse = async (req, res) => {
 	try {
 	  const { courseId } = req.body;
+
+	  console.log("courseID",courseId)
   
 	  // Check if courseId is provided
 	  if (!courseId) {
@@ -365,6 +367,7 @@ exports.deleteCourse = async (req, res) => {
 	  if (!course) {
 		return res.status(404).json({ message: "Course not found" });
 	  }
+	  console.log("checking course: ",course)
   
 	  // Unenroll students from the course
 	  const studentsEnrolled = course.studentsEnrolled || [];

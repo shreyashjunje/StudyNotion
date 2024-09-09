@@ -17,6 +17,8 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
+  console.log("course 1234: ",course)
+
   const {
     thumbnail: ThumbnailImage,
     price: CurrentPrice,
