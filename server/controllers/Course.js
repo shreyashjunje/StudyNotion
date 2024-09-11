@@ -355,7 +355,7 @@ exports.deleteCourse = async (req, res) => {
 	try {
 	  const { courseId } = req.body;
 
-	//   console.log("courseID",courseId)
+	
   
 	  // Check if courseId is provided
 	  if (!courseId) {
