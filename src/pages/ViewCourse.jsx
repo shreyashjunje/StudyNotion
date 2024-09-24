@@ -14,6 +14,8 @@ const ViewCourse = () => {
     const dispatch = useDispatch();
 
     useEffect(()=> {
+
+      
         const setCourseSpecificDetails = async() => {
               const courseData = await getFullDetailsOfCourse(courseId, token);
               dispatch(setCourseSectionData(courseData.courseDetails.courseContent));
@@ -26,6 +28,9 @@ const ViewCourse = () => {
               dispatch(setTotalNoOfLectures(lectures));
         }
         setCourseSpecificDetails();
+
+
+
     },[]);
 
 
